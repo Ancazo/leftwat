@@ -1,0 +1,12 @@
+#button {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+img {
+    max-width: 90%;
+}
+
+#button:hover {
+    opacity: 0.5;
+}
