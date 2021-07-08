@@ -1,8 +1,20 @@
 import React from "react";
-import TopNavBar from "../../Components/TopNavBar";
+import {TopNavBar,SplitPage} from "../../Components";
 
 const LandingPage = () => {
-  return <TopNavBar />;
+  return (
+    <div className='page'>
+        <TopNavBar />
+        <SplitPage>
+            <div id ='split-left'>
+                new
+            </div>
+            <div id = 'split-right'>
+                hihi
+            </div>
+        </SplitPage>
+    </div>
+  )
 };
 
 export default LandingPage;

@@ -2,7 +2,7 @@ import React from "react";
 import "./styles.css";
 import MenuButton from "../MenuButton";
 
-const TopNavBar = () => {
+export const TopNavBar = () => {
   return (
     <nav id="topNavBar">
       <div id="logoAndName">
@@ -26,4 +26,3 @@ const TopNavBar = () => {
   );
 };
 
-export default TopNavBar;

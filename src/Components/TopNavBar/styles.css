@@ -2,9 +2,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 56px;
+    /* height: 56px; */
     background-color: #4C6AC4;
     border-radius: 4px;
+    flex: 1;
 }
 
 #logoAndName {
@@ -13,7 +14,7 @@
 
 #appName {
     width: 71px;
-    height: 32px;
+    /* height: 32px; no need as you have align center already*/
     color: #FFFFFF;
     font-size: 20px;
     margin-left: 20px;
@@ -22,7 +23,7 @@
 #home {
     margin-left: 20px;
     width: 42px;
-    height: 18px;
+    /* height: 18px; no need as you have align center already*/
     color: #FFFFFF;
     font-size: 20px;
 }

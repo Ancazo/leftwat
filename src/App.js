@@ -1,3 +1,4 @@
+import './styles/materialize.min.css'
 import './App.css';
 import Landing from './Pages/Landing'
 
