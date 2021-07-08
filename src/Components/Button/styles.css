@@ -1,9 +1,13 @@
-#button {
-    border-radius: 24px;
+.button {
+    border-radius: 1.6rem;
     border: 0ch;
-    font-size: 16px;
+    font-size: 1rem;
+    width: 23vw;
+    height: 6vh;
+    color:white;
+    text-transform: uppercase;
 }
 
-#button:hover {
+.button:hover {
     opacity: 0.5;
 }

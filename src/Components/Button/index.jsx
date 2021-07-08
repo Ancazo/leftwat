@@ -1,10 +1,10 @@
 import React from 'react'
 import './styles.css'
 
-const Button = ({background, width, height, text, textColour}) => {
+export const Button = (props) => {
     return (
-        <button id='button' style={{background: background, width: width, height: height, color: textColour}}>{text}</button>
+        <div className = 'row'>
+            <button className={`button ${props.style}`}>{props.text}</button>
+        </div>
     )
 }
-
-export default Button
