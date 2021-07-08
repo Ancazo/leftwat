@@ -1,0 +1,54 @@
+#topNavBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    background-color: #4C6AC4;
+    border-radius: 4px;
+}
+
+#logoAndName {
+    display: flex;
+}
+
+#appName {
+    width: 71px;
+    height: 32px;
+    color: #FFFFFF;
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+#home {
+    margin-left: 20px;
+    width: 42px;
+    height: 18px;
+    color: #FFFFFF;
+    font-size: 20px;
+}
+
+#iconArea {
+    display: flex;
+    
+}
+
+#nameAndLogin {
+    display: flex;
+    align-items: center;
+}
+
+#userName {
+    margin-right: 20px;
+    color: #F8F9FA;
+
+}
+
+#loginAndLogoutButton {
+    width: 77px;
+    height: 38px;
+    margin-right: 20px;
+    border: 1px solid #F8F9FA;
+    border-radius: 5px;
+    color: #F8F9FA;
+    background-color: #4C6AC4;
+}
