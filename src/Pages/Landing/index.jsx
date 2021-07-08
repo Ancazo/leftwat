@@ -1,5 +1,5 @@
 import React from "react";
-import {TopNavBar,SplitPage,FormPage} from "../../Components";
+import {TopNavBar,SplitPage,FormPage,SmallButton} from "../../Components";
 import {buttonStyling} from './styles.module.scss'
 
 const LandingPage = () => {
@@ -9,7 +9,7 @@ const LandingPage = () => {
 
         <SplitPage>
             <div id = 'split-left' className = 'row'>
-                
+                <SmallButton />
             </div>
 
             <div id = 'split-right'>
