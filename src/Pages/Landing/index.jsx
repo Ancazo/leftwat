@@ -1,3 +1,5 @@
+import 'materialize-css/dist/css/materialize.min.css'
+
 import React from "react";
 import {TopNavBar,SplitPage,FormPage} from "../../Components";
 import {buttonStyling} from './styles.module.scss'
