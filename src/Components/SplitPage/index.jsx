@@ -2,15 +2,16 @@ import React from "react";
 import "./styles.scss";
 
 export const SplitPage = (props) => {
-  return (
-    <div id = 'splitPage' className = 'row'>
+
+    let content = React.Children.map(props.children, child => 
         <div className = 'col s6 splitPageContent'>
-            {props.left}
-            
+            {child}
         </div>
-        <div className = 'col s6 splitPageContent'>
-            {props.right}
+    )
+
+    return (
+        <div id = 'splitPage' className = 'row'>
+            {content}
         </div>
-    </div>
-  );
+    );
 };

@@ -5,7 +5,14 @@ const LandingPage = () => {
   return (
     <div className='page'>
         <TopNavBar />
-        <SplitPage />
+        <SplitPage>
+            <div id ='split-left'>
+                new
+            </div>
+            <div id = 'split-right'>
+                hihi
+            </div>
+        </SplitPage>
     </div>
   )
 };
