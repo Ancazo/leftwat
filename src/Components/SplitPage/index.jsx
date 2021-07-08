@@ -5,15 +5,11 @@ export const SplitPage = (props) => {
   return (
     <div id = 'splitPage' className = 'row'>
         <div className = 'col s6 splitPageContent'>
-            <div className = 'col'>
-            hihi
-            </div>
+            {props.left}
             
         </div>
         <div className = 'col s6 splitPageContent'>
-            <div className = 'col'>
-            hihi
-            </div>
+            {props.right}
         </div>
     </div>
   );
