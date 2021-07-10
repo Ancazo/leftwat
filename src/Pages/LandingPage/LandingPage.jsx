@@ -12,11 +12,12 @@ import {
     buttonStyling,
     splitRight,
     splitLeft,
+    blueThemeStyling
     } from './LandingPage.module.scss'
 
 export const LandingPage = () => {
     return (
-        <PageContainer navlink ='/login'>
+        <PageContainer navlink ='/login' themeStyle = {blueThemeStyling}>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>

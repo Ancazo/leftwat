@@ -1,33 +1,31 @@
 
-import React from "react";
+import React,{useContext, useEffect} from "react";
 import mainlogo from '../../Assets/mainlogo.png'
+import { ThemeContext } from '../../Components/ThemeProvider'
+
 import {
-    SplitPage,
-    FormPage,
-    Title,
-    ImageContainer,
-    PageContainer
+    PageContainer,
+    FileUploadButton,
+    OnePageContent
     } from "../../Components";
 import {
-    buttonStyling,
-    splitRight,
-    splitLeft,
-    } from './LandingPage.module.scss'
+    navStyling
+    } from './UploadPage.module.scss'
 
-export const LandingPage = () => {
+export const UploadPage = () => {
+    const themeState = useContext(ThemeContext)
+
+    useEffect(()=>{
+        // set theme state 
+        themeState.setTheme('orange')},
+        [] //empty depency makes it runonly once
+    )
+
     return (
-        <PageContainer>
-            <SplitPage >
-                <div className = {`row ${splitLeft}`}>
-                    <ImageContainer src ={mainlogo} alt ='mainlogo'/>
-                    
-                </div>
-
-                <div className = {`col ${splitRight}`}>
-                    <Title title = 'Sign Up' comment='Sign up to get started!' />
-                    <FormPage buttonStyling = {buttonStyling}/>
-                </div>
-            </SplitPage>
+        <PageContainer className = {navStyling}>
+            <OnePageContent>
+                <FileUploadButton/>
+            </OnePageContent>
         </PageContainer>
     )
 };

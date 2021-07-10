@@ -12,11 +12,12 @@ import {
     buttonStyling,
     splitRight,
     splitLeft,
+    blueThemeStyling
     } from './LoginPage.module.scss'
 
 export const LoginPage = () => {
     return (
-        <PageContainer>
+        <PageContainer className = {blueThemeStyling}>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>
