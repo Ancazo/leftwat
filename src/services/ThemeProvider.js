@@ -2,29 +2,44 @@ import React, { useState } from 'react'
 
 export const ThemeContext = React.createContext({
     theme: {
-        name: 'blue',
+        name: 'dark blue',
         primary: '#4C6AC4',
-        text: '#white'
+        text: 'white'
     },
     setTheme: () => {}
 })
 
 export const ThemeContextProvider = props => {
     const theme = {
-        'blue': {
-            color: 'blue',
+        'dark blue': {
+            color: 'dark blue',
             primary: '#4C6AC4',
             text: 'white'
+        },
+        'red': {
+            color: 'red',
+            primary: '#EB5335',
+            text: 'white'
+        },
+        'yellow': {
+            color: 'yellow',
+            primary: '#FEEA50',
+            text: 'black'
         },
         'orange': {
             color: 'orange',
             primary: '#FC791F',
             text: 'white'
         },
-
-        dark:{
-        primary: '#212121',
-        text: 'white'
+        'blue': {
+            color: 'blue',
+            primary: '#85D1D8',
+            text: 'white'
+        },
+        'night':{
+            color: 'night',
+            primary: '#212121',
+            text: 'white'
         },
     }
 
@@ -36,8 +51,8 @@ export const ThemeContextProvider = props => {
     }
 
     const initTheme = {
-        themeColor: 'blue',
-        theme: theme['blue'],
+        themeColor: 'dark blue',
+        theme: theme['dark blue'],
         setTheme: setTheme
     }
 
