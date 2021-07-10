@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { ThemeContext } from '../ThemeProvider'
+import { ThemeContext } from '../../services/ThemeProvider'
 import "./TopNavBar.scss";
 import MenuButton from "../MenuButton";
 import { Link } from "react-router-dom";

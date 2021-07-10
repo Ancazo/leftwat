@@ -1,8 +1,6 @@
 
-import React,{useContext, useEffect} from "react";
-import mainlogo from '../../Assets/mainlogo.png'
-import { ThemeContext } from '../../Components/ThemeProvider'
-
+import React,{useEffect} from "react";
+import { ThemeToggleService } from "../../services";
 import {
     PageContainer,
     FileUploadButton,
@@ -15,12 +13,8 @@ import {
 export const UploadPage = () => {
 
     // set themeState
-    const themeState = useContext(ThemeContext)
+    ThemeToggleService('orange')
 
-    useEffect(()=>{
-        themeState.setTheme('orange')},
-        [] //empty depency makes it runonly once
-    )
 
     //upload image onto cloudinary here
     useEffect(() => {

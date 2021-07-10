@@ -1,6 +1,7 @@
 
 import React from "react";
 import mainlogo from '../../Assets/mainlogo.png'
+import { ThemeToggleService } from "../../services";
 import {
     SplitPage,
     Title,
@@ -12,12 +13,15 @@ import {
     buttonStyling,
     splitRight,
     splitLeft,
-    blueThemeStyling
     } from './LoginPage.module.scss'
 
 export const LoginPage = () => {
+
+    // toggle color
+    ThemeToggleService('blue')
+
     return (
-        <PageContainer className = {blueThemeStyling}>
+        <PageContainer>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>

@@ -1,5 +1,5 @@
 import 'materialize-css/dist/css/materialize.min.css'
-import { ThemeContextProvider } from './Components/ThemeProvider'
+import { ThemeContextProvider } from './services/ThemeProvider'
 
 import {
     BrowserRouter as Router,
