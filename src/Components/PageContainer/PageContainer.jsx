@@ -4,9 +4,9 @@ import { TopNavBar } from '..'
 export const PageContainer =(props) => {
     return (
         <div className='page'>
-        <TopNavBar />
+            <TopNavBar navlink={props.navlink}/>
 
-        {props.children}
-    </div>
+            {props.children}
+        </div>
     )
 }

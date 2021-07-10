@@ -1,8 +1,10 @@
 import React from "react";
 import "./TopNavBar.scss";
 import MenuButton from "../MenuButton";
+import { Link } from "react-router-dom";
 
-export const TopNavBar = () => {
+
+export const TopNavBar = (props) => {
   return (
     <nav id="topNavBar">
       <div id="logoAndName">
@@ -18,9 +20,11 @@ export const TopNavBar = () => {
 
       <div id="nameAndLogin">
         <div id="userName">user name</div>
-        <button id="loginAndLogoutButton" type="button">
-          Login
-        </button>
+        <Link to= {props.navlink} id= 'loginAndLogoutButton'> 
+            <div>
+            Login
+            </div>
+        </Link>
       </div>
     </nav>
   );

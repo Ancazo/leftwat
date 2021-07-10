@@ -1,27 +1,24 @@
 
 import React, { useState } from 'react'
-import "./FormPage.scss";
+import "./LoginFormContainer.scss";
 import { FormTextField,Button } from '..';
 
-export const FormPage = (props) => {
+export const LoginFormContainer = (props) => {
 
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const [confirm_password,setConfirm_password] = useState('')
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
         let formData = new FormData()
         formData.append('email',email)
         formData.append('password',password)
-        formData.append('confirm_password',confirm_password)
 
         console.log(...formData)
     }
 
     console.log(email)
     console.log(password)
-    console.log(confirm_password)
     
     return (
         <form className = 'col' onSubmit = {(e)=> handleFormSubmit(e)}>
@@ -35,12 +32,7 @@ export const FormPage = (props) => {
                 name = 'password' 
                 type = 'password'
                 onChange = {value => setPassword(value)}/>
-            <FormTextField 
-                name = 'confirm_password' 
-                type='password'
-                onChange = {value => setConfirm_password(value)}
-                />
-            <Button type='submit' text = 'register' style ={props.buttonStyling}/>
+            <Button type='submit' text = 'login' style ={props.buttonStyling}/>
         </form>
     )
 }
