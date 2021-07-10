@@ -1,14 +1,23 @@
-import React from 'react'
-// import './FormTextField.scss'
+import React,{useContext} from 'react'
+import { ThemeContext } from '../ThemeProvider'
+
+import './FileUploadButton.scss'
 
 export const FileUploadButton = (props) => {
+    const state = useContext(ThemeContext)
+
+    const fileUploadButton = {
+        background: state.theme.primary,
+        color: state.theme.text
+    }
+
     return (
         <div className = 'col'>
             <form action="#" className ='row valign-wrapper'>
-                <div className = 'col'>
-                    <div className ="file-field input-field">
-                        <div className ="btn">
-                            <span>File</span>
+                <div className = 'col valign-wrapper'>
+                    <div className ="file-field input-field valign-wrapper">
+                        <div className ="btn" style= {fileUploadButton}>
+                            <span>Browse</span>
                             <input type="file"/>
                         </div>
                         <div className="file-path-wrapper">
@@ -18,8 +27,8 @@ export const FileUploadButton = (props) => {
                 </div>
 
                 <div className = 'col'>
-                        <button className="btn waves-effect waves-light " type="submit" name="action">
-                        <i class="material-icons center-align">send</i>
+                        <button className="btn waves-effect waves-light " type="submit" name="action" style={fileUploadButton}>
+                        <i className="material-icons center-align">send</i>
                         </button>
                     </div>
             </form> 

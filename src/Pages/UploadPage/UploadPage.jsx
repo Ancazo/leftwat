@@ -13,16 +13,22 @@ import {
     } from './UploadPage.module.scss'
 
 export const UploadPage = () => {
+
+    // set themeState
     const themeState = useContext(ThemeContext)
 
     useEffect(()=>{
-        // set theme state 
         themeState.setTheme('orange')},
         [] //empty depency makes it runonly once
     )
 
+    //upload image onto cloudinary here
+    useEffect(() => {
+        console.log('uploadImage here')
+    }, [])
+    
     return (
-        <PageContainer className = {navStyling}>
+        <PageContainer navlink ='/login' className = {navStyling}>
             <OnePageContent>
                 <FileUploadButton/>
             </OnePageContent>
