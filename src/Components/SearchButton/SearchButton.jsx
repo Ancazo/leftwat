@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './SearchButton.scss'
 
 const SearchButton =() => {
     return (
