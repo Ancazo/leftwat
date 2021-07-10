@@ -4,6 +4,7 @@
   width: 100vw;
   display: flex;
 }
+
 .page{
     display: flex;
     flex-direction: column;
