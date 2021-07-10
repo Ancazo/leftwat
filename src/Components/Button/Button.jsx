@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './Button.scss'
 
 export const Button = (props) => {
     return (

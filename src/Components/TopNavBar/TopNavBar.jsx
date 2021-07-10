@@ -1,5 +1,5 @@
 import React from "react";
-import "./styles.css";
+import "./TopNavBar.scss";
 import MenuButton from "../MenuButton";
 
 export const TopNavBar = () => {

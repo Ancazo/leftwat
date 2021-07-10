@@ -1,5 +1,5 @@
 import React from 'react'
-import './styles.css'
+import './FormTextField.scss'
 
 export const FormTextField = ({name, type, placeholder}) => {
     return (

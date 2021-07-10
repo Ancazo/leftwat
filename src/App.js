@@ -1,12 +1,12 @@
 import './styles/materialize.min.css'
 import './App.css';
 
-import Landing from './Pages/Landing'
+import {LandingPage} from './Pages'
 
 function App() {
   return (
     <div className="App">
-      <Landing />
+      <LandingPage />
     </div>
   );
 }
