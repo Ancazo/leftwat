@@ -1,33 +1,31 @@
 
-import React from "react";
-import mainlogo from '../../Assets/mainlogo.png'
+import React,{useEffect} from "react";
+import { ThemeToggleService } from "../../services";
 import {
-    SplitPage,
-    FormPage,
-    Title,
-    ImageContainer,
-    PageContainer
+    PageContainer,
+    FileUploadButton,
+    OnePageContent
     } from "../../Components";
 import {
-    buttonStyling,
-    splitRight,
-    splitLeft,
-    } from './LandingPage.module.scss'
+    navStyling
+    } from './UploadPage.module.scss'
 
-export const LandingPage = () => {
+export const UploadPage = () => {
+
+    // set themeState
+    ThemeToggleService('orange')
+
+
+    //upload image onto cloudinary here
+    useEffect(() => {
+        console.log('uploadImage here')
+    }, [])
+    
     return (
-        <PageContainer>
-            <SplitPage >
-                <div className = {`row ${splitLeft}`}>
-                    <ImageContainer src ={mainlogo} alt ='mainlogo'/>
-                    
-                </div>
-
-                <div className = {`col ${splitRight}`}>
-                    <Title title = 'Sign Up' comment='Sign up to get started!' />
-                    <FormPage buttonStyling = {buttonStyling}/>
-                </div>
-            </SplitPage>
+        <PageContainer navlink ='/login' className = {navStyling}>
+            <OnePageContent>
+                <FileUploadButton/>
+            </OnePageContent>
         </PageContainer>
     )
 };
