@@ -6,7 +6,6 @@ export const ThreeColSplitPage = () => {
         <div className='mainContainer'>
             <div className='column column1'></div>
             <div className='column column2'></div>
-            <div className='column column3'></div>
         </div>
     )
 };
