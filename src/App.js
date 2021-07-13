@@ -1,14 +1,40 @@
-import './styles/materialize.min.css'
-import './App.css';
+import 'materialize-css/dist/css/materialize.min.css'
+import { ThemeContextProvider } from './services/ThemeProvider'
 
-import Landing from './Pages/Landing'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
+import {
+    LandingPage, 
+    LoginPage, 
+    UploadPage
+    } from './Pages'
 
 function App() {
-  return (
-    <div className="App">
-      <Landing />
-    </div>
-  );
+    return (
+        <Router>
+            <ThemeContextProvider>
+                <div className="App">
+                    <Switch>
+                        <Route path ='/upload'>
+                            <UploadPage/>
+                        </Route>
+
+                        <Route path ='/login'>
+                            <LoginPage/>
+                        </Route>
+                        
+                        <Route path = '/'>
+                            <LandingPage />
+                        </Route>
+                        
+                    </Switch>
+                </div>
+            </ThemeContextProvider>
+        </Router>
+    );
 }
 
 export default App;

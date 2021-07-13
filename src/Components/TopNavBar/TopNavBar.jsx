@@ -1,10 +1,20 @@
-import React from "react";
-import "./styles.css";
+import React, { useContext } from 'react'
+import { ThemeContext } from '../../services/ThemeProvider'
+import "./TopNavBar.scss";
 import MenuButton from "../MenuButton";
+import { Link } from "react-router-dom";
 
-export const TopNavBar = () => {
+
+export const TopNavBar = (props) => {
+    const state = useContext(ThemeContext)
+
+    const navBar = {
+        background: state.theme.primary,
+        color: state.theme.text
+    }
+
   return (
-    <nav id="topNavBar">
+    <nav id="topNavBar" style = {navBar}>
       <div id="logoAndName">
         <div id="appName">LeftWat</div>
         <div id="home">Home</div>
@@ -18,9 +28,11 @@ export const TopNavBar = () => {
 
       <div id="nameAndLogin">
         <div id="userName">user name</div>
-        <button id="loginAndLogoutButton" type="button">
-          Login
-        </button>
+        <Link to= {props.navlink} id= 'loginAndLogoutButton'> 
+            <div>
+            Login
+            </div>
+        </Link>
       </div>
     </nav>
   );
