@@ -1,18 +1,28 @@
 import 'materialize-css/dist/css/materialize.min.css'
-
-<<<<<<< HEAD
-import {LandingPage} from './Pages'
-=======
-import './App.css';
-import Landing from './Pages/Landing'
->>>>>>> formFunctions
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route
+  } from "react-router-dom";
+import {LandingPage, LoginPage} from './Pages'
 
 function App() {
-  return (
-    <div className="App">
-      <LandingPage />
-    </div>
-  );
+    return (
+        <Router>
+            <div className="App">
+                <Switch>
+                    <Route path ='/login'>
+                        <LoginPage/>
+                    </Route>
+                    
+                    <Route path = '/'>
+                        <LandingPage />
+                    </Route>
+                    
+                </Switch>
+            </div>
+        </Router>
+    );
 }
 
 export default App;

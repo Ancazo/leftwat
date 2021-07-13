@@ -16,7 +16,7 @@ import {
 
 export const LandingPage = () => {
     return (
-        <PageContainer>
+        <PageContainer navlink ='/login'>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>
