@@ -1,0 +1,39 @@
+.smallTextBox {
+    width: 24vw;
+    height: 30vh;
+    border: 1px solid #E0E0E0;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 20px;
+    margin-bottom: 24px;
+}
+
+.prices {
+    margin-bottom: 24px;
+}
+
+.othersButton {
+    width: 7.8vw;
+    height: 6.9vh;
+    color: #2699FB;
+    background: white;
+    border-color: #85D1D8;
+}
+
+.othersButton:hover {
+    opacity: 0.75;
+}
+
+.addTagButton {
+    width: 7.8vw;
+    height: 6.9vh;
+    color: white;
+    background: #85D1D8;
+    border-color: #85D1D8;
+}
+
+.addTagButton:hover {
+    opacity: 0.75;
+}
