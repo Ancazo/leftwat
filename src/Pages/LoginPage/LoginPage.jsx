@@ -18,7 +18,7 @@ import {
 export const LoginPage = () => {
 
     // toggle color
-    ThemeToggleService('blue')
+    ThemeToggleService('dark blue')
 
     return (
         <PageContainer>

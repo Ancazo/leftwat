@@ -18,7 +18,7 @@ import {
 export const LandingPage = () => {
 
     // toggle color
-    ThemeToggleService('blue')
+    ThemeToggleService('dark blue')
     
     return (
         <PageContainer navlink ='/login' >
