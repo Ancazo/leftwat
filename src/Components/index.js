@@ -14,6 +14,7 @@ export * from './FileUploadButton/FileUploadButton'
 export * from './OnePageContent/OnePageContent'
 export * from './UploadTable/UploadTable'
 export * from './FridgeItem/FridgeItem'
+export * from './FridgeColumn/FridgeColumn'
 
 // those with logic
 export * from './UploadTableContainer/UploadTableContainer'

@@ -6,7 +6,6 @@ import {
     OnePageContent,
     FridgeContainer
 } from "../../Components";
-import { data } from '../../sample_data/data'
 
 
 export const InventoryPage = () => {
