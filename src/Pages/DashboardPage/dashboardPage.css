@@ -8,13 +8,10 @@
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
 .col2 {
     flex-grow: 2;
-    justify-items: center;
-    align-items: center;
     font-size: 40px;
     color: #EB5335;
 }
@@ -24,7 +21,6 @@
 }
 
 .col3 {
-    margin-top: 16px;
     flex-grow: 2;
     font-size: 40px;
     color: #EB5335;

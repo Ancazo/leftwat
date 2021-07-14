@@ -25,7 +25,16 @@ export const DashboardPage = (props) => {
                     <FormTextField 
                         name = 'password' 
                         type = 'password'
+                        placeholder = 'Enter new password'
+
+                    />                    
+                    <FormTextField 
+                        name = 'password' 
+                        type = 'password'
+                        placeholder = 'Re-enter new password'
+
                     />
+
                     <Button text = 'Change password' style ={props.buttonStyling}/>
                 </form>
                     
