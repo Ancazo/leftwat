@@ -13,7 +13,9 @@ export * from './FormPage/FormPage'
 export * from './FileUploadButton/FileUploadButton'
 export * from './OnePageContent/OnePageContent'
 export * from './UploadTable/UploadTable'
+export * from './FridgeItem/FridgeItem'
 
 // those with logic
 export * from './UploadTableContainer/UploadTableContainer'
 export * from './LoginFormContainer/LoginFormContainer'
+export * from './FridgeContainer/FridgeContainer'

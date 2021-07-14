@@ -9,7 +9,8 @@ import {
 import {
     LandingPage, 
     LoginPage, 
-    UploadPage
+    UploadPage,
+    InventoryPage
     } from './Pages'
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
             <ThemeContextProvider>
                 <div className="App">
                     <Switch>
+                        <Route path ='/inventory'>
+                            <InventoryPage/>
+                        </Route>
                         <Route path ='/upload'>
                             <UploadPage/>
                         </Route>
