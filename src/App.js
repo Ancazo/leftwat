@@ -22,7 +22,7 @@ function App() {
                 <div className="App">
                     <Switch>
                         <Route path ='/menu'>
-                            <DashboardPage/>
+                            <MenuPage/>
                         </Route>
                         <Route path ='/dashboard'>
                             <DashboardPage/>

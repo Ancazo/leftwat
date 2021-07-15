@@ -16,7 +16,7 @@ export const DashboardPage = (props) => {
                 <div className='col2'>
                     <Title title='Username'/>
                     <div className = 'col'>
-                    <form action="" >
+                    <form className= 'resetPassword' action="" >
                         <FormTextField 
                             name='email' 
                             type ='text' 

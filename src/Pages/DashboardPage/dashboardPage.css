@@ -31,7 +31,7 @@
     color: #EB5335;
 }
 
-form {
+.resetPassword {
     display: flex;
     flex-direction: column;
     justify-content: center;
