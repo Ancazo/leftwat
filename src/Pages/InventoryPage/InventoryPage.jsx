@@ -3,7 +3,6 @@ import React,{useEffect, useState} from "react";
 import { ThemeToggleService } from "../../services";
 import {
     PageContainer,
-    OnePageContent,
     FridgeContainer
 } from "../../Components";
 
@@ -15,6 +14,26 @@ export const InventoryPage = () => {
 
     // states for data to be transformed to table
     const [dataArray,setDataArray] = useState([])
+
+    const [itemChangeState, setItemChangeState] = useState({})
+
+    const setItemStateHandler = (itemName,changedKey,input) => {
+        const newUpdate = {...itemChangeState}
+        if(newUpdate[itemName]) {
+            newUpdate[itemName][changedKey] = input
+        }else{
+            newUpdate[itemName] = {[`${changedKey}`]:input}
+        }
+        setItemChangeState(newUpdate)
+
+    }
+    
+
+    const handleFormSubmit = (e) => {
+        e.preventDefault()
+        // handle form submission
+        console.log(itemChangeState)
+    }
     
     useEffect(() => {
         //retrieve inventory here
@@ -22,9 +41,7 @@ export const InventoryPage = () => {
     
     return (
         <PageContainer navlink ='/logout'>
-            <OnePageContent>
-                <FridgeContainer/>
-            </OnePageContent>
+            <FridgeContainer setItemState= {setItemStateHandler} onsubmit = {handleFormSubmit}/>
         </PageContainer>
     )
 };
