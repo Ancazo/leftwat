@@ -1,6 +1,7 @@
 
 import React from "react";
 import mainlogo from '../../Assets/mainlogo.png'
+import { ThemeToggleService } from "../../services";
 import {
     SplitPage,
     Title,
@@ -15,6 +16,10 @@ import {
     } from './LoginPage.module.scss'
 
 export const LoginPage = () => {
+
+    // toggle color
+    ThemeToggleService('dark blue')
+
     return (
         <PageContainer>
             <SplitPage >
