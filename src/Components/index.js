@@ -14,6 +14,7 @@ export * from './SmallButton/smallButton'
 //1b layout
 export * from './PageContainer/PageContainer'
 export * from './SplitPage/SplitPage'
+export * from './ThreeColSplitPage/threeColSplitPage'
 
 // 1c specific presentational components
 export * from './UploadTable/UploadTable'

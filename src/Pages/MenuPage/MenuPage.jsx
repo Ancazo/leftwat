@@ -1,7 +1,7 @@
 import React from "react";
 import {TopNavBar,ThreeColSplitPage} from "../../Components";
 
-const LandingPage = () => {
+export const MenuPage = () => {
   return (
     <div className='page'>
         <TopNavBar />
@@ -11,4 +11,3 @@ const LandingPage = () => {
   )
 };
 
-export default LandingPage;
