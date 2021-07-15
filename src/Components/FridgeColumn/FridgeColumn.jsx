@@ -24,7 +24,7 @@ export const FridgeColumn = (props) => {
                     style = {{backgroundColor: backgroundColors[props.column] , height:'60vh', minWidth: '30vw', overflow:'scroll'}}
                     >
                     {props.items.map((item, index) => (
-                        <FridgeItem key={item.id} item={item} index={index} columnID = {props.column} onchange= {props.onchange}/>
+                        <FridgeItem handleDelete={props.handleDelete} key={item.id} item={item} index={index} columnID = {props.column} onchange= {props.onchange}/>
                     ))}
                     {provided.placeholder}
                     </div>
