@@ -1,22 +1,30 @@
-// presentational components
-export * from './Button/Button'
-export * from './MenuButton'
+//1. presentational components
 export * from './FormTextField/FormTextField'
 export * from './TopNavBar/TopNavBar'
-export * from './SplitPage/SplitPage'
-export * from './SmallButton/smallButton'
 export * from './Title/Title'
 export * from './ImageContainer/ImageContainer'
-export * from './PageContainer/PageContainer'
+
+//1a buttons
 export * from './SearchButton/SearchButton'
-export * from './FormPage/FormPage'
 export * from './FileUploadButton/FileUploadButton'
-export * from './OnePageContent/OnePageContent'
+export * from './Button/Button'
+export * from './MenuButton'
+export * from './SmallButton/smallButton'
+
+//1b layout
+export * from './PageContainer/PageContainer'
+export * from './SplitPage/SplitPage'
+
+// 1c specific presentational components
 export * from './UploadTable/UploadTable'
+
 export * from './FridgeItem/FridgeItem'
 export * from './FridgeColumn/FridgeColumn'
+export * from './FridgeDragAndDrop/FridgeDragAndDrop'
 
-// those with logic
+// container components
 export * from './UploadTableContainer/UploadTableContainer'
 export * from './LoginFormContainer/LoginFormContainer'
 export * from './FridgeContainer/FridgeContainer'
+export * from './FormPage/FormPage'
+
