@@ -10,7 +10,6 @@ import {
     LoginFormContainer
     } from "../../Components";
 import {
-    buttonStyling,
     splitRight,
     splitLeft,
     } from './LoginPage.module.scss'
@@ -30,7 +29,7 @@ export const LoginPage = () => {
 
                 <div className = {`col ${splitRight}`}>
                     <Title title = 'Login' comment='' />
-                    <LoginFormContainer buttonStyling = {buttonStyling}/>
+                    <LoginFormContainer />
                 </div>
             </SplitPage>
         </PageContainer>

@@ -4,7 +4,6 @@ import { ThemeToggleService } from "../../services";
 import {
     PageContainer,
     FileUploadButton,
-    OnePageContent,
     UploadTableContainer
     } from "../../Components";
 import {
@@ -33,13 +32,11 @@ export const UploadPage = () => {
     
     return (
         <PageContainer navlink ='/login' className = {navStyling}>
-            <OnePageContent>
-                <FileUploadButton submit={e=>handleSubmit(e)}/>
+            <FileUploadButton submit={e=>handleSubmit(e)}/>
                 { dataArray.length !== 0 ?
                     <UploadTableContainer data = {dataArray} />
                     : ''
                 }
-            </OnePageContent>
         </PageContainer>
     )
 };
