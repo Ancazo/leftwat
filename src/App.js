@@ -10,7 +10,9 @@ import {
     LandingPage, 
     LoginPage, 
     UploadPage,
-    InventoryPage
+    InventoryPage,
+    DashboardPage,
+    MenuPage
     } from './Pages'
 
 function App() {
@@ -19,6 +21,12 @@ function App() {
             <ThemeContextProvider>
                 <div className="App">
                     <Switch>
+                        <Route path ='/menu'>
+                            <MenuPage/>
+                        </Route>
+                        <Route path ='/dashboard'>
+                            <DashboardPage/>
+                        </Route>
                         <Route path ='/inventory'>
                             <InventoryPage/>
                         </Route>

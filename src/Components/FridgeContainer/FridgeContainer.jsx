@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import {data} from '../../sample_data/data'
-import { FridgeColumn, Button,FridgeDragAndDrop } from '..';
+import {Button,FridgeDragAndDrop } from '..';
 
 // state logic here
 export const FridgeContainer =(props) => { 
@@ -20,14 +20,16 @@ export const FridgeContainer =(props) => {
             newUpdate[itemName] = {[`${changedKey}`]:input}
         }
         setItemChangeState(newUpdate)
+        console.log(itemChangeState)
     }
 
     const setListDataHandler = (itemID, updateKey, input) => {
         const index = listData.findIndex(elem => elem.itemName === itemID)
         // do not mutate original array so use spread operator such that change in state can be detected
-        const newData = [...listData]
+        let newData = [...listData]
         const updateItem = newData[index]
         updateItem[updateKey] = input
+        newData = newData.filter(elem => elem['deleted'] === false)
         setListData(newData)
     }
     

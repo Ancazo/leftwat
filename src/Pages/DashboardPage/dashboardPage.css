@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     height: 95vh;
+    width: 90%;
 }
 
 .col1 {
@@ -30,7 +31,7 @@
     color: #EB5335;
 }
 
-form {
+.resetPassword {
     display: flex;
     flex-direction: column;
     justify-content: center;
