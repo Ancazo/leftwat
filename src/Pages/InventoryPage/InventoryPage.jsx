@@ -10,7 +10,7 @@ import {
 export const InventoryPage = () => {
 
     // set themeState
-    ThemeToggleService('blue')
+    ThemeToggleService('yellow')
 
     // states for data to be transformed to table
     const [dataArray,setDataArray] = useState([])

@@ -29,7 +29,7 @@ export const TopNavBar = (props) => {
       <div id="nameAndLogin">
         <div id="userName">user name</div>
         <Link to= {props.navlink} id= 'loginAndLogoutButton'> 
-            <div>
+            <div style = {{border: `1px solid ${state.theme.text}`,borderRadius: '5px', color: `${state.theme.text}`}}>
             Login
             </div>
         </Link>
