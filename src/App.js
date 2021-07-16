@@ -9,7 +9,8 @@ import {
 import {
     LandingPage, 
     LoginPage, 
-    UploadPage
+    UploadPage,
+    DashboardPage
     } from './Pages'
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
 
                         <Route path ='/login'>
                             <LoginPage/>
+                        </Route>
+
+                        <Route path ='/dashboard'>
+                            <DashboardPage/>
                         </Route>
                         
                         <Route path = '/'>
