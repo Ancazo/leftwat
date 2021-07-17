@@ -37,7 +37,7 @@ export const LoginFormContainer = (props) => {
                 type = 'password'
                 onChange = {value => setPassword(value)}/>
             <Button type='submit' text = 'login' style ={props.buttonStyling}/>
-            <Button text = 'forget password?' style ={props.buttonStyling}/>
+            <Button text = 'forget password?'/>
         </form>
     )
 }

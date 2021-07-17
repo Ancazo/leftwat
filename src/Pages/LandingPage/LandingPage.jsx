@@ -10,7 +10,6 @@ import {
     PageContainer
     } from "../../Components";
 import {
-    buttonStyling,
     splitRight,
     splitLeft,
     } from './LandingPage.module.scss'
@@ -30,7 +29,7 @@ export const LandingPage = () => {
 
                 <div className = {`col ${splitRight}`}>
                     <Title title = 'Sign Up' comment='Sign up to get started!' />
-                    <FormPage buttonStyling = {buttonStyling}/>
+                    <FormPage/>
                 </div>
             </SplitPage>
         </PageContainer>
