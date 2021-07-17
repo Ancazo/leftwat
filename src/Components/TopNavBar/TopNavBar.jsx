@@ -21,9 +21,18 @@ export const TopNavBar = (props) => {
       </div>
 
       <div id="iconArea">
+        <Link to='/dashboard'>
+
         <MenuButton type="chart" colour='#85D1D8' width='48px' height='48px'/>
+        </Link>
+        <Link to='/upload'>
+
         <MenuButton type="upload" colour='#FC791F' width='48px' height='48px'/>
+        </Link>
+        <Link to='/inventory'>
+
         <MenuButton type="fridge" colour='#FEEA50' width='48px' height='48px'/>
+        </Link>
       </div>
 
       <div id="nameAndLogin">
