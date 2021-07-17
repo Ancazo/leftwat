@@ -30,8 +30,8 @@ export const MenuPage = () => {
               height="128px"
             />
             <Title
-              title="Price Comparison"
-              comment="Search for your item to compare prices"
+              title="Upload"
+              comment="Upload your receipt here to add to your inventory"
             />
           </div>
         </Link>
@@ -45,8 +45,8 @@ export const MenuPage = () => {
               height="128px"
             />
             <Title
-              title="Price Comparison"
-              comment="Search for your item to compare prices"
+              title="Inventory"
+              comment="What's in my fridge?"
             />
           </div>
         </Link>
