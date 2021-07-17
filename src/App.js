@@ -9,6 +9,7 @@ import {
   InventoryPage,
   DashboardPage,
   MenuPage,
+  DashboardHistoryPage
 } from "./Pages";
 
 function App() {
@@ -34,8 +35,8 @@ function App() {
               <LoginPage />
             </Route>
 
-            <Route path="/dashboard">
-              <DashboardPage />
+            <Route path="/history">
+              <DashboardHistoryPage />
             </Route>
 
             <Route path="/">

@@ -8,6 +8,7 @@ import {
 } from "../../Components";
 import "./dashboardPage.css";
 import { ThemeToggleService } from "../../services";
+import { Link } from "react-router-dom";
 
 export const DashboardPage = (props) => {
   ThemeToggleService("red");
@@ -21,8 +22,12 @@ export const DashboardPage = (props) => {
       <TopNavBar />
       <div className="dashboard">
         <div className="col1">
-          <SmallButton text="History" />
-          <SmallButton text="account" />
+          <Link to="/history">
+            <SmallButton text="History" />
+          </Link>
+          <Link to="/dashboard">
+            <SmallButton text="account" />
+          </Link>
         </div>
         <div className="col2">
           <Title title="Username" />
