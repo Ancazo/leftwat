@@ -44,7 +44,7 @@ export const FormPage = (props) => {
                 type='password'
                 onChange = {value => setConfirm_password(value)}
                 />
-            <Button type='submit' text = 'register' style ={props.buttonStyling}/>
+            <Button type='submit' text = 'register'/>
         </form>
     )
 }

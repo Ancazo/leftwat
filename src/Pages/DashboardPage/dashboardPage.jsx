@@ -16,7 +16,6 @@ export const DashboardPage = (props) => {
   const [newPassword, setNewPassword] = useState("");
   const [reEnterNewPassword, setReEnterNewPassword] = useState("");
 
-
   return (
     <div className="" container>
       <TopNavBar />
@@ -33,7 +32,7 @@ export const DashboardPage = (props) => {
               type="text"
               placeholder="xyz@gmail.com"
               onChange={(value) => {
-                  setEmail(value)
+                setEmail(value);
               }}
             />
             <FormTextField
@@ -41,16 +40,16 @@ export const DashboardPage = (props) => {
               type="password"
               placeholder="Enter new password"
               onChange={(value) => {
-                setNewPassword(value)
-            }}
+                setNewPassword(value);
+              }}
             />
             <FormTextField
               name="re-enter-password"
               type="password"
               placeholder="Re-enter new password"
               onChange={(value) => {
-                setReEnterNewPassword(value)
-            }}
+                setReEnterNewPassword(value);
+              }}
             />
             <Button text="Change password" />
           </form>
