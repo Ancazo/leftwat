@@ -8,7 +8,7 @@ export * from './ImageContainer/ImageContainer'
 export * from './SearchButton/SearchButton'
 export * from './FileUploadButton/FileUploadButton'
 export * from './Button/Button'
-export * from './MenuButton'
+export * from './MenuButton/MenuButton'
 export * from './SmallButton/smallButton'
 
 //1b layout
