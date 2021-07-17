@@ -38,13 +38,13 @@ export const FridgeDragAndDrop = (props) => {
     
     const handleItemQuantityChange = (itemName,input) => {
         // update props data
-        props.setListDataHandler(itemName,'countUpdatedByUser', input)
-        props.setItemStateHandler(itemName,'countUpdatedByUser',input)
+        props.setListDataHandler(itemName,'itemQuantityUpdatedByUser', input)
+        props.setItemStateHandler(itemName,'itemQuantityUpdatedByUser',input)
     }
 
     const handleDelete = (itemName) => {
-        props.setListDataHandler(itemName, 'deleted', true)
-        props.setItemStateHandler(itemName, 'deleted', true)
+        props.setListDataHandler(itemName, 'deletedByUser', true)
+        props.setItemStateHandler(itemName, 'deletedByUser', true)
     }
 
     const droppableContent = columnOrder.map(columnId => {
