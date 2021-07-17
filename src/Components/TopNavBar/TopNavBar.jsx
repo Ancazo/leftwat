@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from '../../services/ThemeProvider'
 import "./TopNavBar.scss";
-import MenuButton from "../MenuButton";
+import {MenuButton} from "../../Components";
 import { Link } from "react-router-dom";
 
 

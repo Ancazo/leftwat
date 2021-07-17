@@ -13,7 +13,7 @@ export const FileUploadButton = (props) => {
 
     return (
         <div className = 'col'>
-            <form action="#" className ='row valign-wrapper' onSubmit={(e)=>props.submit(e)}>
+            <form action="#" className ='row valign-wrapper fileUpload' onSubmit={(e)=>props.submit(e)}>
                 <div className = 'col valign-wrapper'>
                     <div className ="file-field input-field valign-wrapper">
                         <div className ="btn" style= {fileUploadButton}>
