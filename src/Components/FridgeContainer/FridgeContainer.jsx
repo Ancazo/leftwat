@@ -1,16 +1,30 @@
 import React,{useState} from 'react'
 import {data} from '../../sample_data/data'
 import {Button,FridgeDragAndDrop } from '..';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 // state logic here
 export const FridgeContainer =(props) => { 
 
-    // modifyData for use
-    data.map(elem => elem.id = elem.itemName)
-    
     // set states
-    const[listData,setListData] = useState(data)
+    const[listData,setListData] = useState([])
     const [itemChangeState, setItemChangeState] = useState({})
+    // need to retrieve jwt token
+
+    // only run once to retrieve intial data
+    useEffect(()=> {
+        // get user data first
+        let user = 'user1'
+        axios.get('http://localhost:7000/api/v1/inventory/',{headers: {user:user}})
+        .then(response => {
+            console.log(response.data)
+            setListData(response.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [])
 
     const setItemStateHandler = (itemName,changedKey,input) => {
         const newUpdate = {...itemChangeState}
@@ -24,12 +38,15 @@ export const FridgeContainer =(props) => {
     }
 
     const setListDataHandler = (itemID, updateKey, input) => {
-        const index = listData.findIndex(elem => elem.itemName === itemID)
+        const index = listData.findIndex(elem => elem.slug === itemID)
         // do not mutate original array so use spread operator such that change in state can be detected
         let newData = [...listData]
-        const updateItem = newData[index]
+        let updateItem = newData[index]
         updateItem[updateKey] = input
-        newData = newData.filter(elem => elem['deleted'] === false)
+        console.log(newData)
+        newData = newData.filter(elem => elem['deletedByUser'] === false)
+        console.log(newData)
+
         setListData(newData)
     }
     

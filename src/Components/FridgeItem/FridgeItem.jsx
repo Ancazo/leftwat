@@ -29,7 +29,7 @@ export const FridgeItem = (props) => {
     }
 
     return(
-        <Draggable draggableId={props.item.id} index={props.index}>
+        <Draggable draggableId={props.item.slug} index={props.index}>
             {(provided, snapshot) => (
             <div
                 {...provided.draggableProps}
@@ -49,11 +49,11 @@ export const FridgeItem = (props) => {
                                 type = 'text' 
                                 disabled={inputState} 
                                 style = {{width:'100%'}}
-                                onChange = {e => {props.onchange(props.item.itemName,e.target.value)}}
-                                value= {props.item.countUpdatedByUser}/>
+                                onChange = {e => {props.onchange(props.item.slug,e.target.value)}}
+                                value= {props.item.itemQuantityUpdatedByUser}/>
                         </div>
 
-                        <div className = 'col s2 center-align' onClick = {()=> props.handleDelete(props.item.itemName)}>
+                        <div className = 'col s2 center-align' onClick = {()=> props.handleDelete(props.item.slug)}>
                             <i className = 'material-icons' style= {{fontSize:'1rem',padding:'0'}} >close</i>
                         </div>
                     </div>
