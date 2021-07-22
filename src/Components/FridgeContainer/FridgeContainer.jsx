@@ -10,6 +10,7 @@ export const FridgeContainer =(props) => {
     // set states
     const[listData,setListData] = useState([])
     const [itemChangeState, setItemChangeState] = useState({})
+    const [itemUpdateCount, setItemUpdateCount] = useState(0)
     // need to retrieve jwt token
 
     // only run once to retrieve intial data
@@ -24,7 +25,7 @@ export const FridgeContainer =(props) => {
         .catch(err => {
             console.log(err)
         })
-    }, [])
+    }, [itemUpdateCount])
 
     const setItemStateHandler = (itemName,changedKey,input) => {
         const newUpdate = {...itemChangeState}
@@ -54,6 +55,14 @@ export const FridgeContainer =(props) => {
         e.preventDefault()
         // handle form submission
         console.log(itemChangeState)
+
+        axios.patch('http://localhost:7000/api/v1/inventory/',{headers: {itemChangeState:itemChangeState}})
+        .then(response => {
+            setItemUpdateCount(itemUpdateCount++)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (
