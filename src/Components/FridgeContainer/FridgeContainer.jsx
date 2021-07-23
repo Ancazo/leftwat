@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import {data} from '../../sample_data/data'
 import {Button,FridgeDragAndDrop } from '..';
 import { useEffect } from 'react';
 import axios from 'axios';
@@ -10,6 +9,7 @@ export const FridgeContainer =(props) => {
     // set states
     const[listData,setListData] = useState([])
     const [itemChangeState, setItemChangeState] = useState({})
+    const [itemUpdateCount, setItemUpdateCount] = useState(0)
     // need to retrieve jwt token
 
     // only run once to retrieve intial data
@@ -24,7 +24,7 @@ export const FridgeContainer =(props) => {
         .catch(err => {
             console.log(err)
         })
-    }, [])
+    }, [itemUpdateCount])
 
     const setItemStateHandler = (itemName,changedKey,input) => {
         const newUpdate = {...itemChangeState}
@@ -34,7 +34,6 @@ export const FridgeContainer =(props) => {
             newUpdate[itemName] = {[`${changedKey}`]:input}
         }
         setItemChangeState(newUpdate)
-        console.log(itemChangeState)
     }
 
     const setListDataHandler = (itemID, updateKey, input) => {
@@ -43,10 +42,7 @@ export const FridgeContainer =(props) => {
         let newData = [...listData]
         let updateItem = newData[index]
         updateItem[updateKey] = input
-        console.log(newData)
         newData = newData.filter(elem => elem['deletedByUser'] === false)
-        console.log(newData)
-
         setListData(newData)
     }
     
@@ -54,6 +50,15 @@ export const FridgeContainer =(props) => {
         e.preventDefault()
         // handle form submission
         console.log(itemChangeState)
+
+        axios.patch('http://localhost:7000/api/v1/inventory/',{headers: {itemChangeState:itemChangeState}})
+        .then(response => {
+            let newCount = itemUpdateCount + 1
+            setItemUpdateCount(newCount)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     return (
