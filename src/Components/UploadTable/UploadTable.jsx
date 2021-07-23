@@ -1,5 +1,3 @@
-
-
 import React, { useContext } from 'react'
 import { ThemeContext } from '../../services/ThemeProvider'
 import "./UploadTable.scss";
@@ -19,12 +17,12 @@ export const UploadTable = (props) => {
     let tableContent = data.map(
         (elem) => {
             return (
-                <tr>
+                <tr key = {elem.slug}>
                 <td >{data.indexOf(elem)+1}</td>
-                <td className='inputContainer'>{elem['itemName']}</td>
-                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem['countAtPointOfUpload']}/></td>
-                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem['priceOfItem']}/></td>
-                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem['priceTotal']}/></td>
+                <td className='inputContainer'>{elem.itemName}</td>
+                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem.itemQuantityUpdatedByUser} onChange = {e => props.onchange(e, elem.slug, 'itemQuantityUpdatedByUser' ,elem.itemPrice )}/></td>
+                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem.itemPrice} onChange = {e => props.onchange(e, elem.slug, 'itemPrice' ,elem.itemQuantityUpdatedByUser)}/></td>
+                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem.itemPrice * elem.itemQuantityUpdatedByUser} disabled='true'/></td>
                 </tr>
             )
         }

@@ -9,7 +9,8 @@ import {
 import {
     navStyling
     } from './UploadPage.module.scss'
-import { data } from '../../sample_data/data'
+import { newdata } from '../../sample_data/data'
+import axios from "axios";
 
 
 export const UploadPage = () => {
@@ -19,24 +20,50 @@ export const UploadPage = () => {
 
     // states for data to be transformed to table
     const [dataArray,setDataArray] = useState([])
-    
-    useEffect(() => {
-        //upload image onto cloudinary here
-        console.log('uploadImage here')
-    }, [])
+    const [uploadImage, setUploadImage] = useState(null)
+    const [uploadedStatus, setUploadedStatus] = useState(false)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        setDataArray(data)
+        setDataArray(newdata)
+        setUploadedStatus(true)
+
+        // check file uploaded first
+        if (uploadImage) {
+            let formData = new FormData()
+            formData.append('img',uploadImage)
+
+            axios.post('http://localhost:7000/api/v1/upload', formData) 
+                .then(response => {
+                    console.log('uploaded successfully')
+                    setUploadedStatus(1) //receipt ID set here to be used. 
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+            // data array retrieval here
+        }
+
+        // retrieve data for confirmation
+    }
+
+    const handleImageChange = (e) => {
+        setUploadImage(e.target.files[0])
+        console.log(e.target.files)
+        console.log(uploadImage)
     }
     
     return (
         <PageContainer navlink ='/login' className = {navStyling}>
-            <FileUploadButton submit={e=>handleSubmit(e)}/>
-                { dataArray.length !== 0 ?
-                    <UploadTableContainer data = {dataArray} />
-                    : ''
-                }
+            { uploadedStatus ? '' 
+                : <FileUploadButton filename = {uploadImage ? uploadImage.name : ''} submit={handleSubmit} onchange = {handleImageChange}/>
+            }
+
+            { dataArray.length !== 0 ?
+                <UploadTableContainer data = {dataArray} />
+                : ''
+            }
         </PageContainer>
     )
 };

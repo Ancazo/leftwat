@@ -6,7 +6,7 @@ import {
   Button,
   Title,
 } from "../../Components";
-import "./dashboardPage.css";
+import "./dashboardPage.scss";
 import { ThemeToggleService } from "../../services";
 import { Link } from "react-router-dom";
 

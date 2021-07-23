@@ -3,6 +3,10 @@
     justify-content: center;
     height: 95vh;
     width: 90%;
+    form {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .col1 {
@@ -17,10 +21,7 @@
     font-size: 40px;
     color: #EB5335;
 }
-form {
-    display: flex;
-    flex-direction: column;
-}
+
 
 .username {
     margin-top: 14vh;
