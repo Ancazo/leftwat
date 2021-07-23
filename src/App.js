@@ -31,11 +31,10 @@ function App() {
               <UploadPage />
             </Route>
 
-            <Route path="/login">
-              <LoginPage />
-            </Route>
+            <Route path="/login" component={LoginPage}/>
+              
 
-            <Route path="/history">
+            <Route path="/history"> 
               <DashboardHistoryPage />
             </Route>
 
