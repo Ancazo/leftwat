@@ -1,6 +1,6 @@
 import "materialize-css/dist/css/materialize.min.css";
 import { ThemeContextProvider } from "./services/ThemeProvider";
-
+import PrivateRoute from "../src/Components/PrivateRoute/PrivateRoute";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {
   LandingPage,
@@ -9,41 +9,39 @@ import {
   InventoryPage,
   DashboardPage,
   MenuPage,
-  DashboardHistoryPage
+  DashboardHistoryPage,
 } from "./Pages";
 
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
     <Router>
       <ThemeContextProvider>
         <div className="App">
-
-        <ToastContainer />
+          <ToastContainer />
 
           <Switch>
-            <Route path="/menu">
+            <PrivateRoute path="/menu">
               <MenuPage />
-            </Route>
-            <Route path="/dashboard">
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
               <DashboardPage />
-            </Route>
-            <Route path="/inventory">
+            </PrivateRoute>
+            <PrivateRoute path="/inventory">
               <InventoryPage />
-            </Route>
-            <Route path="/upload">
+            </PrivateRoute>
+            <PrivateRoute path="/upload">
               <UploadPage />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/login" component={LoginPage}/>
-              
+            <Route path="/login" component={LoginPage} />
 
-            <Route path="/history"> 
+            <PrivateRoute path="/history">
               <DashboardHistoryPage />
-            </Route>
+            </PrivateRoute>
 
-            <Route path="/" component={LandingPage}/>
+            <Route path="/" component={LandingPage} />
           </Switch>
         </div>
       </ThemeContextProvider>

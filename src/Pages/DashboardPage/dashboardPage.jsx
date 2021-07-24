@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   TopNavBar,
   SmallButton,
@@ -8,14 +8,28 @@ import {
 } from "../../Components";
 import "./dashboardPage.scss";
 import { ThemeToggleService } from "../../services";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+
 
 export const DashboardPage = (props) => {
   ThemeToggleService("red");
+  const history = useHistory()
+  const [cookies] = useCookies(['name']);
 
   const [email, setEmail] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [reEnterNewPassword, setReEnterNewPassword] = useState("");
+
+  console.log(props)
+  // useEffect(() => {
+  //   console.log(cookies.name)
+  //   // const { cookies } = props
+
+  //   if (!cookies.name) {
+  //       history.push('/login')
+  //   }
+  // });
 
   return (
     <div className="" container>

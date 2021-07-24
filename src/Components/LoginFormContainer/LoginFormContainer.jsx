@@ -4,10 +4,13 @@ import { FormTextField, Button } from "..";
 import axios from "axios";
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { useCookies } from 'react-cookie';
 
 export const LoginFormContainer = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const [cookies, setCookie] = useCookies(['name']);
 
   useEffect(() => {
     // call to backend here
@@ -18,15 +21,20 @@ export const LoginFormContainer = (props) => {
     axios
       .post("http://localhost:7000/api/v1/landing/login", { email, password })
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        // console.log(response.data.token);
+        setCookie('name', response.data.token, {path: '/'});
+        console.log(cookies)
+
         if (response.status === 200) {
           props.history.push("/dashboard");
           toast(response.data.message)
-        }
+            
+          }
       })
       .catch((err) => {
-        console.log(err);
-        console.log(err.response)
+        // console.log(err);
+        // console.log(err.response)
         toast(err.response.data.message)
       });
   };
