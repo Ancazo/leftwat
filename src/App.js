@@ -38,9 +38,7 @@ function App() {
               <DashboardHistoryPage />
             </Route>
 
-            <Route path="/">
-              <LandingPage />
-            </Route>
+            <Route path="/" component={LandingPage}/>
           </Switch>
         </div>
       </ThemeContextProvider>
