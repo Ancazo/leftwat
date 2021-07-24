@@ -17,8 +17,8 @@ export const LoginFormContainer = (props) => {
       .post("http://localhost:7000/api/v1/landing/login", { email, password })
       .then((response) => {
         console.log(response);
-        if(response.status === 200) {
-            props.history.push('/dashboard')
+        if (response.status === 200) {
+          props.history.push("/dashboard");
         }
       })
       .catch((err) => {

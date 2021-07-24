@@ -14,7 +14,8 @@ import {
     splitLeft,
     } from './LandingPage.module.scss'
 
-export const LandingPage = () => {
+export const LandingPage = (props) => {
+    console.log(props)
 
     // toggle color
     ThemeToggleService('dark blue')
@@ -24,12 +25,12 @@ export const LandingPage = () => {
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>
-                    
                 </div>
 
                 <div className = {`col ${splitRight}`}>
                     <Title title = 'Sign Up' comment='Sign up to get started!' />
-                    <FormPage/>
+                    <FormPage history={props.history}/>
+                    
                 </div>
             </SplitPage>
         </PageContainer>
