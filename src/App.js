@@ -12,11 +12,16 @@ import {
   DashboardHistoryPage
 } from "./Pages";
 
+import { ToastContainer } from 'react-toastify'
+
 function App() {
   return (
     <Router>
       <ThemeContextProvider>
         <div className="App">
+
+        <ToastContainer />
+
           <Switch>
             <Route path="/menu">
               <MenuPage />
