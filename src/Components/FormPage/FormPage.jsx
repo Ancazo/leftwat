@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./FormPage.scss";
 import { FormTextField, Button } from "..";
 import axios from "axios";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const FormPage = (props) => {
   const [email, setEmail] = useState("");
@@ -25,10 +28,14 @@ export const FormPage = (props) => {
         console.log(props);
         if (response.status === 200) {
           props.history.push("/login");
+          toast(response.data.message)
         }
       })
       .catch((err) => {
-        console.log(err);
+        console.log(err.response);
+        console.log(err.response.data.details[0].message);
+        toast(err.response.data.details[0].message)
+
       });
   };
 
