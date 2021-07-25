@@ -11,7 +11,7 @@ export const DashboardHistoryPage = (props) => {
 
   return (
     <div className="" container>
-      <TopNavBar />
+      <TopNavBar name='Logout'/>
       <div className="dashboard">
         <div className="col1">
           <Link to="/history">

@@ -13,7 +13,7 @@ export const InventoryPage = () => {
     ThemeToggleService('yellow')
     
     return (
-        <PageContainer navlink ='/logout'>
+        <PageContainer navlink ='/logout' name='Logout'>
             <FridgeContainer/>
         </PageContainer>
     )

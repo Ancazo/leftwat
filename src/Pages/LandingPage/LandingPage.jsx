@@ -21,7 +21,7 @@ export const LandingPage = (props) => {
     ThemeToggleService('dark blue')
     
     return (
-        <PageContainer navlink ='/login' >
+        <PageContainer navlink ='/login' name='Login'>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>

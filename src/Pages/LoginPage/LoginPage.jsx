@@ -21,7 +21,7 @@ export const LoginPage = (props) => {
 
 
     return (
-        <PageContainer>
+        <PageContainer navlink="/register" name='Register'>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>
