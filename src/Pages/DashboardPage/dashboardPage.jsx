@@ -33,7 +33,7 @@ export const DashboardPage = (props) => {
 
   return (
     <div className="" container>
-      <TopNavBar />
+      <TopNavBar navlink="/login" name='Logout'/>
       <div className="dashboard">
         <div className="col1">
           <Link to="/history">

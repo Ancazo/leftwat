@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const MenuPage = () => {
   return (
-    <PageContainer navlink="/menu">
+    <PageContainer navlink="/login" name='Logout'>
       <div id="menuButtonsContainer">
         <Link to="/dashboard">
           <div className="buttonTitleContainer">

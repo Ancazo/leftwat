@@ -55,7 +55,7 @@ export const UploadPage = () => {
     }
     
     return (
-        <PageContainer navlink ='/login' className = {navStyling}>
+        <PageContainer navlink ='/login' className = {navStyling} name='Logout'>
             { uploadedStatus ? '' 
                 : <FileUploadButton filename = {uploadImage ? uploadImage.name : ''} submit={handleSubmit} onchange = {handleImageChange}/>
             }

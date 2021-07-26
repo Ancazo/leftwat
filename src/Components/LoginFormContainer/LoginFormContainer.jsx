@@ -27,7 +27,7 @@ export const LoginFormContainer = (props) => {
         console.log(cookies)
 
         if (response.status === 200) {
-          props.history.push("/dashboard");
+          props.history.push("/menu");
           toast(response.data.message)
             
           }
