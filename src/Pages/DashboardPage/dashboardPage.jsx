@@ -10,26 +10,51 @@ import "./dashboardPage.scss";
 import { ThemeToggleService } from "../../services";
 import { Link, useHistory } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-
+import { Pie} from 'react-chartjs-2'
+import axios from "axios";
 
 export const DashboardPage = (props) => {
   ThemeToggleService("red");
-  const history = useHistory()
-  const [cookies] = useCookies(['name']);
+    const history = useHistory()
+    const [cookies] = useCookies(['name']);
 
-  const [email, setEmail] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [reEnterNewPassword, setReEnterNewPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [newPassword, setNewPassword] = useState("");
+    const [reEnterNewPassword, setReEnterNewPassword] = useState("");
+    const [pieInput,setPieInput] = useState([])
+    
+    useEffect(() => {
+        axios.get('https://leftwat-be.herokuapp.com/api/v1/dashboard/pieData',
+        {headers: {
+            user:cookies.name,
+            auth_token:cookies.name},
+        })
+        .then(response => {
+            console.log(response.data)
+            setPieInput(response.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    },[])
 
-  console.log(props)
-  // useEffect(() => {
-  //   console.log(cookies.name)
-  //   // const { cookies } = props
-
-  //   if (!cookies.name) {
-  //       history.push('/login')
-  //   }
-  // });
+    const pieData = {
+        labels: [
+          'Meat',
+          'Vegetable',
+          'Others'
+        ],
+        datasets: [{
+          label: 'My First Dataset',
+          data: [pieInput.meat, pieInput.vegetable, pieInput.others],
+          backgroundColor: [
+            'rgb(235,83,53)',
+            'rgb(133,209,216)',
+            'rgb(76,106,196)'
+          ],
+          hoverOffset: 4
+        }],
+      }
 
   return (
     <div className="" container>
@@ -75,7 +100,18 @@ export const DashboardPage = (props) => {
         </div>
         <div className="col3">
           <Title title="My Fridge Overview" />
-          <div className="image">chart here</div>
+            <div className="image">  
+            {pieInput.length === 0 
+                ? 'No data yet' 
+                : <Pie 
+                    data={pieData} 
+                    options= {{
+                        responsive: true,
+                        maintainAspectRatio : false
+                    }}
+            />
+            }
+            </div>
         </div>
       </div>
     </div>

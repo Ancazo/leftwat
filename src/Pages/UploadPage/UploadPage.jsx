@@ -11,10 +11,12 @@ import {
     } from './UploadPage.module.scss'
 import { newdata } from '../../sample_data/data'
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 
 export const UploadPage = () => {
-
+    const [cookies] = useCookies(["name"]);
+    console.log(cookies)
     // set themeState
     ThemeToggleService('orange')
 
@@ -33,7 +35,7 @@ export const UploadPage = () => {
             let formData = new FormData()
             formData.append('img',uploadImage)
 
-            axios.post('http://localhost:7000/api/v1/upload', formData) 
+            axios.post('https://leftwat-be.herokuapp.com/api/v1/upload', formData) 
                 .then(response => {
                     console.log('uploaded successfully')
                     setUploadedStatus(1) //receipt ID set here to be used. 

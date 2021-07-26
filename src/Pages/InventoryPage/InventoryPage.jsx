@@ -8,7 +8,6 @@ import {
 
 
 export const InventoryPage = () => {
-
     // set themeState
     ThemeToggleService('yellow')
     

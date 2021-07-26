@@ -18,7 +18,7 @@ export const FormPage = (props) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:7000/api/v1/landing/register", {
+      .post("https://leftwat-be.herokuapp.com/api/v1/landing/register", {
         email,
         password,
         confirm_password,
@@ -32,16 +32,13 @@ export const FormPage = (props) => {
         }
       })
       .catch((err) => {
+        console.log(err)
         console.log(err.response);
         console.log(err.response.data.details[0].message);
         toast(err.response.data.details[0].message)
 
       });
   };
-
-  // console.log(email)
-  // console.log(password)
-  // console.log(confirm_password)
 
   return (
     <form className="col" onSubmit={(e) => handleFormSubmit(e)}>

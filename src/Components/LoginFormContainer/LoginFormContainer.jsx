@@ -19,7 +19,7 @@ export const LoginFormContainer = (props) => {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:7000/api/v1/landing/login", { email, password })
+      .post("https://leftwat-be.herokuapp.com/api/v1/landing/login", { email, password })
       .then((response) => {
         // console.log(response);
         // console.log(response.data.token);
