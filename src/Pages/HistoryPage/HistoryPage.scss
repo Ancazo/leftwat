@@ -1,8 +1,9 @@
 .dashboard {
     display: flex;
     justify-content: center;
-    height: 95vh;
-    width: 90%;
+    height: 100%;
+    width: 100%;
+    padding: 1%
 }
 
 .col1 {
@@ -15,10 +16,11 @@
 #receiptDisplayArea {
     border: 1px solid black;
     border-radius: 8px;
-    margin-top: 8vh;
-    width: 70vw;
+    margin: 6vh;
+    max-width: 80vw;
     height: 70vh;
     flex-grow: 4;
+    justify-content: center;
 }
 
 #top {
@@ -47,7 +49,7 @@
 }
 
 #bottom {
-    width: 70vw;
+    width: 60vw;
     height: 61vh;
     display: flex;
     margin: auto;

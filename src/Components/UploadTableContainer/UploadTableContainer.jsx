@@ -1,6 +1,5 @@
 
-
-import React,{useState,usHistory} from 'react'
+import React,{useState} from 'react'
 import {UploadTable, SmallButton } from '..';
 import axios from 'axios';
 import { useCookies } from 'react-cookie';

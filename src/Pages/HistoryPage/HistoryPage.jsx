@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { TopNavBar, SmallButton } from "../../Components";
+import {SmallButton, PageContainer } from "../../Components";
 import "./HistoryPage.scss";
 import { ThemeToggleService } from "../../services";
 import { Link } from "react-router-dom";
 // import {sampleReceipt} from '../../Assets/index'
-import { SampleReceipt } from "../../Assets";
 import { useCookies } from "react-cookie";
 import axios from "axios";
+import { Pagination, Icon } from "react-materialize";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export const DashboardHistoryPage = (props) => {
 
@@ -26,11 +28,31 @@ export const DashboardHistoryPage = (props) => {
             .catch(err => {
                 console.log(err)
             })
-    },[])
+    },[cookies.name])
+
+    const onClickHandler = (activePage) => {
+        console.log(activePage)
+        setImageNumber(activePage - 1)
+    }
+
+    const handleDeleteHandler = (e) => {
+        const currentReceipt = imageArray[imageNumber] 
+        const receiptID = currentReceipt.receiptID
+        console.log(receiptID)
+
+        axios.delete('https://leftwat-be.herokuapp.com/api/v1/dashboard/delete-receipt', {headers: {auth_token:cookies.name,receiptid: receiptID},}) 
+        .then(response => {
+            console.log('retrieve successfully')
+            console.log(response.data)
+            toast(response.data.message)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
 
   return (
-    <div className="" container>
-      <TopNavBar name='Logout'/>
+    <PageContainer name = 'Logout'>
       <div className="dashboard">
         <div className="col1">
           <Link to="/history">
@@ -44,7 +66,7 @@ export const DashboardHistoryPage = (props) => {
         <div id="receiptDisplayArea">
           <div id="top">
             <p id="receiptId">{imageArray.length!==0?imageArray[imageNumber].receiptID:'need data'}</p>
-            <button id="deleteReceipt">Delete Receipt</button>
+            <button id="deleteReceipt" onClick = {(e)=>handleDeleteHandler(e)}>Delete Receipt</button>
           </div>
           <div id="bottom">
             <div id="receiptContainer">
@@ -53,37 +75,18 @@ export const DashboardHistoryPage = (props) => {
           </div>
           <div id='paginationContainer'>
 
+            <Pagination
+                activePage={1}
+                items={imageArray.length}
+                leftBtn={<Icon>chevron_left</Icon>}
+                maxButtons={imageArray.length}
+                onSelect = {activePage=> onClickHandler(activePage)}
+                rightBtn={<Icon>chevron_right</Icon>}
+            />
 
-          <ul class="pagination">
-            <li class="disabled">
-              <a href="#!">
-                <i class="material-icons">chevron_left</i>
-              </a>
-            </li>
-            <li class="active">
-              <a href="#!">1</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">2</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">3</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">4</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">5</a>
-            </li>
-            <li class="waves-effect">
-              <a href="#!">
-                <i class="material-icons">chevron_right</i>
-              </a>
-            </li>
-          </ul>
           </div>
         </div>
       </div>
-    </div>
+      </PageContainer>    
   );
 };

@@ -1,23 +1,20 @@
 
-import React,{useEffect, useState} from "react";
+import React,{useState} from "react";
 import { ThemeToggleService } from "../../services";
 import {
     PageContainer,
     FileUploadButton,
     UploadTableContainer
     } from "../../Components";
-import {
-    navStyling
-    } from './UploadPage.module.scss'
-import { newdata } from '../../sample_data/data'
 import axios from "axios";
 import { useCookies } from "react-cookie";
 import { toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { Preloader } from "react-materialize";
+
 
 export const UploadPage = () => {
     const [cookies] = useCookies(["name"]);
-    console.log(cookies)
     // set themeState
     ThemeToggleService('orange')
 
@@ -27,11 +24,12 @@ export const UploadPage = () => {
     const [uploadedStatus, setUploadedStatus] = useState(false)
     const [receiptID,setReceiptID] = useState('')
     const [dataUpload,setDataUpload] = useState(false)
+    const [loading,setLoading] = useState(false)
 
     const handleSubmit = async(e) => {
         e.preventDefault()
         setUploadedStatus(true)
-
+        setLoading(true)
         // check file uploaded first
         if (uploadImage) {
             let formData = new FormData()
@@ -53,6 +51,7 @@ export const UploadPage = () => {
                 console.log('retrieve successfully')
                 setDataArray(response.data.receiptData) //receipt ID set here to be used. 
                 setDataUpload(true)
+                setLoading(false)
             })
             .catch(err => {
                 console.log(err)
@@ -66,10 +65,16 @@ export const UploadPage = () => {
     }
     
     return (
-        <PageContainer navlink ='/login' className = {navStyling} name='Logout'>
+        <PageContainer navlink ='/login' name='Logout'>
             { uploadedStatus ? '' 
                 : <FileUploadButton filename = {uploadImage ? uploadImage.name : ''} submit={handleSubmit} onchange = {handleImageChange}/>
             }
+            {loading ? <Preloader
+                active
+                color="red"
+                flashing={false}
+                size="big"
+                /> : ''}
             { dataUpload ?
                 <UploadTableContainer data = {dataArray} receiptID = {receiptID}/>
                 : ''

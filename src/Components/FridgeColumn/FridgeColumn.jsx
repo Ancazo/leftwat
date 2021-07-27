@@ -12,7 +12,7 @@ export const FridgeColumn = (props) => {
     }
     
     return(
-        <div className = 'col' style= {{width: '30vw', margin:'1vw'}}>
+        <div className = 'col fridge-column' style= {{width: '30vw', margin:'1vw'}}>
             <ImageContainer src={columnImage[props.column]}/>
 
             <Droppable droppableId={props.column}>

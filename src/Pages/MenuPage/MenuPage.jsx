@@ -2,8 +2,11 @@ import React from "react";
 import { PageContainer, MenuButton, Title } from "../../Components";
 import "./MenuPage.scss";
 import { Link } from "react-router-dom";
+import { ThemeToggleService } from "../../services";
 
 export const MenuPage = () => {
+    ThemeToggleService("dark blue");
+
   return (
     <PageContainer navlink="/login" name='Logout'>
       <div id="menuButtonsContainer">
