@@ -12,7 +12,7 @@ export const FridgeColumn = (props) => {
     }
     
     return(
-        <div className = 'col' style= {{width: '30vw', margin:'1vw'}}>
+        <div className = 'col fridge-column' style= {{width: '30vw', margin:'1vw'}}>
             <ImageContainer src={columnImage[props.column]}/>
 
             <Droppable droppableId={props.column}>
@@ -24,7 +24,7 @@ export const FridgeColumn = (props) => {
                     style = {{backgroundColor: backgroundColors[props.column] , height:'60vh', minWidth: '30vw', overflow:'scroll'}}
                     >
                     {props.items.map((item, index) => (
-                        <FridgeItem key={item.id} item={item} index={index} columnID = {props.column} onchange= {props.onchange}/>
+                        <FridgeItem handleDelete={props.handleDelete} key={`${item.slug},${item.receiptID}`} item={item} index={index} columnID = {props.column} onchange= {props.onchange}/>
                     ))}
                     {provided.placeholder}
                     </div>

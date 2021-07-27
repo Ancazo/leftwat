@@ -1,0 +1,68 @@
+.dashboard {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    padding: 1%
+}
+
+.col1 {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#receiptDisplayArea {
+    border: 1px solid black;
+    border-radius: 8px;
+    margin: 6vh;
+    max-width: 80vw;
+    height: 70vh;
+    flex-grow: 4;
+    justify-content: center;
+}
+
+#top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid black;
+    border-radius:8px ;
+}
+
+#receiptId {
+    margin-left: 8px;
+}
+
+#deleteReceipt {
+    height: 6vh;
+    width: 8vw;
+    margin: 8px;
+    color: white;
+    background: #EB5335;
+    border-radius: 8px;
+}
+
+#deleteReceipt:hover {
+    opacity: 0.5;
+    transition: 0.25s;
+}
+
+#bottom {
+    width: 60vw;
+    height: 61vh;
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+
+#receiptContainer {
+    width: 100%;
+    margin: 16px;
+    overflow: auto;
+}
+
+#paginationContainer {
+    display: flex;
+    justify-content: center;
+}

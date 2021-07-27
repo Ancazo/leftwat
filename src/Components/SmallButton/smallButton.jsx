@@ -11,7 +11,7 @@ export const SmallButton = (props) => {
     }
     return (
         <div className = 'row'>
-            <button className='smallButton' style = {smallButton}>{props.text}</button>
+            <button className='smallButton' style = {smallButton} onClick = {props.onclick? e=>props.onclick(e) : ''}>{props.text}</button>
         </div>
     )
 }

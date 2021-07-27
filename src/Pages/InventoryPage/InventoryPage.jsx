@@ -1,5 +1,5 @@
 
-import React,{useEffect, useState} from "react";
+import React from "react";
 import { ThemeToggleService } from "../../services";
 import {
     PageContainer,
@@ -8,20 +8,11 @@ import {
 
 
 export const InventoryPage = () => {
-
     // set themeState
-    ThemeToggleService('blue')
-
-    // states for data to be transformed to table
-    const [dataArray,setDataArray] = useState([])
-
-    
-    useEffect(() => {
-        //retrieve inventory here
-    }, [])
+    ThemeToggleService('yellow')
     
     return (
-        <PageContainer navlink ='/logout'>
+        <PageContainer navlink ='/logout' name='Logout'>
             <FridgeContainer/>
         </PageContainer>
     )

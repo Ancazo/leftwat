@@ -1,44 +1,52 @@
-import 'materialize-css/dist/css/materialize.min.css'
-import { ThemeContextProvider } from './services/ThemeProvider'
+import "materialize-css/dist/css/materialize.min.css";
+import { ThemeContextProvider } from "./services/ThemeProvider";
+import PrivateRoute from "../src/Components/PrivateRoute/PrivateRoute";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  LandingPage,
+  LoginPage,
+  UploadPage,
+  InventoryPage,
+  DashboardPage,
+  MenuPage,
+  DashboardHistoryPage,
+} from "./Pages";
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route
-  } from "react-router-dom";
-import {
-    LandingPage, 
-    LoginPage, 
-    UploadPage,
-    InventoryPage
-    } from './Pages'
+import { ToastContainer } from "react-toastify";
 
 function App() {
-    return (
-        <Router>
-            <ThemeContextProvider>
-                <div className="App">
-                    <Switch>
-                        <Route path ='/inventory'>
-                            <InventoryPage/>
-                        </Route>
-                        <Route path ='/upload'>
-                            <UploadPage/>
-                        </Route>
+  return (
+    <Router>
+      <ThemeContextProvider>
+        <div className="App">
+          <ToastContainer />
 
-                        <Route path ='/login'>
-                            <LoginPage/>
-                        </Route>
-                        
-                        <Route path = '/'>
-                            <LandingPage />
-                        </Route>
-                        
-                    </Switch>
-                </div>
-            </ThemeContextProvider>
-        </Router>
-    );
+          <Switch>
+            <PrivateRoute path="/menu">
+              <MenuPage />
+            </PrivateRoute>
+            <PrivateRoute path="/dashboard">
+              <DashboardPage />
+            </PrivateRoute>
+            <PrivateRoute path="/inventory">
+              <InventoryPage />
+            </PrivateRoute>
+            <PrivateRoute path="/upload">
+              <UploadPage />
+            </PrivateRoute>
+
+            <Route path="/login" component={LoginPage} />
+
+            <PrivateRoute path="/history">
+              <DashboardHistoryPage />
+            </PrivateRoute>
+
+            <Route path="/" component={LandingPage} />
+          </Switch>
+        </div>
+      </ThemeContextProvider>
+    </Router>
+  );
 }
 
 export default App;

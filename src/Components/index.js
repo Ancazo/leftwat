@@ -8,12 +8,13 @@ export * from './ImageContainer/ImageContainer'
 export * from './SearchButton/SearchButton'
 export * from './FileUploadButton/FileUploadButton'
 export * from './Button/Button'
-export * from './MenuButton'
+export * from './MenuButton/MenuButton'
 export * from './SmallButton/smallButton'
 
 //1b layout
 export * from './PageContainer/PageContainer'
 export * from './SplitPage/SplitPage'
+export * from './ThreeColSplitPage/threeColSplitPage'
 
 // 1c specific presentational components
 export * from './UploadTable/UploadTable'

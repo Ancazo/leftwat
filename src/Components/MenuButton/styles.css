@@ -1,12 +1,14 @@
-#button {
+#menu {
     height: 100%;
     width: 100%;
     border-radius: 50%;
+    border: none;
+    margin: 1%
 }
 img {
-    max-width: 90%;
+    max-width: 70%;
 }
 
-#button:hover {
+#menu:hover {
     opacity: 0.5;
 }

@@ -14,13 +14,14 @@ import {
     splitLeft,
     } from './LoginPage.module.scss'
 
-export const LoginPage = () => {
+export const LoginPage = (props) => {
 
     // toggle color
     ThemeToggleService('dark blue')
 
+
     return (
-        <PageContainer>
+        <PageContainer navlink="/register" name='Register'>
             <SplitPage >
                 <div className = {`row ${splitLeft}`}>
                     <ImageContainer src ={mainlogo} alt ='mainlogo'/>
@@ -29,7 +30,7 @@ export const LoginPage = () => {
 
                 <div className = {`col ${splitRight}`}>
                     <Title title = 'Login' comment='' />
-                    <LoginFormContainer />
+                    <LoginFormContainer history={props.history}/>
                 </div>
             </SplitPage>
         </PageContainer>

@@ -14,7 +14,6 @@
 #appName {
     width: 71px;
     /* height: 32px; no need as you have align center already*/
-    color: #FFFFFF;
     font-size: 20px;
     margin-left: 20px;
 }
@@ -23,8 +22,11 @@
     margin-left: 20px;
     width: 42px;
     /* height: 18px; no need as you have align center already*/
-    color: #FFFFFF;
     font-size: 20px;
+}
+
+#home:hover {
+    opacity: 0.75;
 }
 
 #iconArea {
@@ -39,7 +41,6 @@
 
 #userName {
     margin-right: 20px;
-    color: #F8F9FA;
 
 }
 
@@ -47,8 +48,6 @@
     width: 6vw;
     height: 2.375rem;
     margin-right: 20px;
-    border: 1px solid #F8F9FA;
-    border-radius: 5px;
     line-height: 2.375rem;
     text-align: center;
 }
