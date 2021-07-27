@@ -12,7 +12,8 @@ import {
 import { newdata } from '../../sample_data/data'
 import axios from "axios";
 import { useCookies } from "react-cookie";
-
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 export const UploadPage = () => {
     const [cookies] = useCookies(["name"]);
@@ -24,10 +25,11 @@ export const UploadPage = () => {
     const [dataArray,setDataArray] = useState([])
     const [uploadImage, setUploadImage] = useState(null)
     const [uploadedStatus, setUploadedStatus] = useState(false)
+    const [receiptID,setReceiptID] = useState('')
+    const [dataUpload,setDataUpload] = useState(false)
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()
-        setDataArray(newdata)
         setUploadedStatus(true)
 
         // check file uploaded first
@@ -35,25 +37,32 @@ export const UploadPage = () => {
             let formData = new FormData()
             formData.append('img',uploadImage)
 
-            axios.post('https://leftwat-be.herokuapp.com/api/v1/upload', formData) 
+            await axios.post('https://leftwat-be.herokuapp.com/api/v1/upload/', formData, {headers: {user:cookies.name, auth_token:cookies.name},}) 
                 .then(response => {
                     console.log('uploaded successfully')
-                    setUploadedStatus(1) //receipt ID set here to be used. 
+                    setReceiptID(response.data.receiptID)
+                    console.log(response.data.receiptID)
+                    toast(response.data.message)
                 })
                 .catch(err => {
                     console.log(err)
                 })
-
-            // data array retrieval here
-        }
-
-        // retrieve data for confirmation
+            
+            await axios.get('https://leftwat-be.herokuapp.com/api/v1/upload/confirm', {headers: {auth_token:cookies.name},}) 
+            .then(response => {
+                console.log('retrieve successfully')
+                setDataArray(response.data.receiptData) //receipt ID set here to be used. 
+                setDataUpload(true)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+            
+        }       
     }
 
     const handleImageChange = (e) => {
         setUploadImage(e.target.files[0])
-        console.log(e.target.files)
-        console.log(uploadImage)
     }
     
     return (
@@ -61,9 +70,8 @@ export const UploadPage = () => {
             { uploadedStatus ? '' 
                 : <FileUploadButton filename = {uploadImage ? uploadImage.name : ''} submit={handleSubmit} onchange = {handleImageChange}/>
             }
-
-            { dataArray.length !== 0 ?
-                <UploadTableContainer data = {dataArray} />
+            { dataUpload ?
+                <UploadTableContainer data = {dataArray} receiptID = {receiptID}/>
                 : ''
             }
         </PageContainer>

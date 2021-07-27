@@ -100,7 +100,7 @@ export const DashboardPage = (props) => {
         </div>
         <div className="col3">
           <Title title="My Fridge Overview" />
-            <div className="image">  
+            <div className="image center-align">  
             {pieInput.length === 0 
                 ? 'No data yet' 
                 : <Pie 

@@ -1,15 +1,32 @@
 
 
-import React,{useState} from 'react'
+import React,{useState,usHistory} from 'react'
 import {UploadTable, SmallButton } from '..';
+import axios from 'axios';
+import { useCookies } from 'react-cookie';
+import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const UploadTableContainer = (props) => {
     // form logic here
     const [itemChangeState, setItemChangeState] = useState({})
     const [listData,setListData] = useState(props.data)
+    const [cookies] = useCookies(["name"]);
+    const history = useHistory()
 
     const handleFormSubmit = (e) => {
         e.preventDefault()
+        console.log('clicked')
+        axios.patch('https://leftwat-be.herokuapp.com/api/v1/upload/confirm',{itemChangeState:itemChangeState},{headers: {auth_token:cookies.name,receiptid: props.receiptID}})
+        .then(response => {
+            toast('changes updated')
+            history.push('/inventory')
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     const setListDataHandler = (itemID, updateKey, input) => {
@@ -41,6 +58,7 @@ export const UploadTableContainer = (props) => {
         setItemStateHandler(itemID,updateKey,input)
 
         let itemPrice = input * linkedKey
+        itemPrice = itemPrice.toFixed(2)
         setListDataHandler(itemID,'itemPriceTotal',itemPrice)
         setItemStateHandler(itemID, 'itemPriceTotal',itemPrice)
     }
@@ -50,7 +68,7 @@ export const UploadTableContainer = (props) => {
             <form>
                 <UploadTable data = {listData} onchange = {changeHandler} />
                 <div className = 'right-align'>
-                    <SmallButton type='submit' text = 'confirm'/>
+                    <SmallButton type='submit' text = 'confirm' onclick = {handleFormSubmit}/>
                 </div>
             </form>
       </div>

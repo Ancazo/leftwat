@@ -17,7 +17,7 @@ export const FridgeContainer =(props) => {
     const [cookies] = useCookies(["name"]);
 
     useEffect(()=> {
-
+        console.log(itemUpdateCount)
         // get user data first
         axios.get('https://leftwat-be.herokuapp.com/api/v1/inventory/',{headers: {user:cookies.name}})
         .then(response => {
@@ -35,18 +35,20 @@ export const FridgeContainer =(props) => {
         })
     }, [itemUpdateCount,cookies.name,history])
 
-    const setItemStateHandler = (itemName,changedKey,input) => {
+    const setItemStateHandler = (itemName,changedKey,input,receiptID) => {
         const newUpdate = {...itemChangeState}
         if(newUpdate[itemName]) {
             newUpdate[itemName][changedKey] = input
         }else{
             newUpdate[itemName] = {[`${changedKey}`]:input}
         }
+        newUpdate[itemName]['receiptID'] = receiptID
         setItemChangeState(newUpdate)
+        console.log(newUpdate)
     }
 
-    const setListDataHandler = (itemID, updateKey, input) => {
-        const index = listData.findIndex(elem => elem.slug === itemID)
+    const setListDataHandler = (itemID, updateKey, input, receiptID) => {
+        const index = listData.findIndex(elem => elem.slug === itemID && elem.receiptID === receiptID)
         // do not mutate original array so use spread operator such that change in state can be detected
         let newData = [...listData]
         let updateItem = newData[index]
@@ -62,8 +64,10 @@ export const FridgeContainer =(props) => {
 
         axios.patch('https://leftwat-be.herokuapp.com/api/v1/inventory/',{itemChangeState},{headers: {user:cookies.name}})
         .then(response => {
+            setItemChangeState({})
             let newCount = itemUpdateCount + 1
             setItemUpdateCount(newCount)
+            toast('item updated!')
         })
         .catch(err => {
             console.log(err)

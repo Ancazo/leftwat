@@ -22,7 +22,7 @@ export const UploadTable = (props) => {
                 <td className='inputContainer'>{elem.itemName}</td>
                 <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem.itemQuantityUpdatedByUser} onChange = {e => props.onchange(e, elem.slug, 'itemQuantityUpdatedByUser' ,elem.itemPrice )}/></td>
                 <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem.itemPrice} onChange = {e => props.onchange(e, elem.slug, 'itemPrice' ,elem.itemQuantityUpdatedByUser)}/></td>
-                <td className='inputContainer'><input className='browser-default' type = 'text' value ={elem.itemPrice * elem.itemQuantityUpdatedByUser} disabled='true'/></td>
+                <td className='inputContainer'><input className='browser-default' type = 'text' value ={(elem.itemPrice * elem.itemQuantityUpdatedByUser).toFixed(2)} disabled='true'/></td>
                 </tr>
             )
         }
