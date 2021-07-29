@@ -5,13 +5,15 @@ import fridge from "./fridge.png";
 import Others from "./Others.png"
 import Meat from "./Meat.png"
 import Vegetable from "./Vegetable.png"
+import dashboard from "./Dashboard.png"
 import sampleReceipt from "./simple-receipt-template.png"
 
 export const menu = {
     chart,
     upload,
     fridge,
-    placeholder
+    placeholder,
+    dashboard
 }
 export const columnImage= {
     Others,

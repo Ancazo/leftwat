@@ -10,6 +10,7 @@ import {
   DashboardPage,
   MenuPage,
   DashboardHistoryPage,
+  PriceComparisonPage,
 } from "./Pages";
 
 import { ToastContainer } from "react-toastify";
@@ -33,6 +34,9 @@ function App() {
             </PrivateRoute>
             <PrivateRoute path="/upload">
               <UploadPage />
+            </PrivateRoute>
+            <PrivateRoute path="/pricecomparison">
+                <PriceComparisonPage/>
             </PrivateRoute>
 
             <Route path="/login" component={LoginPage} />

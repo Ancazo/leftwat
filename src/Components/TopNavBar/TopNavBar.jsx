@@ -4,16 +4,16 @@ import "./TopNavBar.scss";
 import {MenuButton} from "../../Components";
 import { Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
-import { remove } from 'lodash';
 
 
 export const TopNavBar = (props) => {
     const state = useContext(ThemeContext)
-    const [cookies, setCookie, removeCookie] = useCookies(['cookie-name']);
+    const [removeCookie] = useCookies(['cookie-name']);
 
     const navBar = {
         background: state.theme.primary,
-        color: state.theme.text
+        color: state.theme.text,
+        boxShadow:'none',
     }
 
     const handleLogout =() => {
@@ -30,7 +30,7 @@ export const TopNavBar = (props) => {
       </div>
 
       <div id="iconArea">
-        <Link to='/dashboard'>
+        <Link to='/pricecomparison'>
 
         <MenuButton type="chart" colour='#85D1D8' width='48px' height='48px'/>
         </Link>
@@ -41,6 +41,11 @@ export const TopNavBar = (props) => {
         <Link to='/inventory'>
 
         <MenuButton type="fridge" colour='#FEEA50' width='48px' height='48px'/>
+        </Link>
+
+        <Link to='/dashboard'>
+
+        <MenuButton type="dashboard" colour='#EB5335' width='48px' height='48px'/>
         </Link>
       </div>
 

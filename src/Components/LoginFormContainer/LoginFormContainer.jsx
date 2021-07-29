@@ -12,9 +12,10 @@ export const LoginFormContainer = (props) => {
 
   const [cookies, setCookie] = useCookies(['name']);
 
-  useEffect(() => {
-    // call to backend here
-  });
+    const handleForgetPassword = (e) => {
+        console.log('forget password')
+    }
+  
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -54,7 +55,7 @@ export const LoginFormContainer = (props) => {
         onChange={setPassword}
       />
       <Button type="submit" text="login" style={props.buttonStyling} />
-      <Button text="forget password?" />
+      <Button text="forget password?" onClick = {(e)=>handleForgetPassword(e)}/>
     </form>
   );
 };
