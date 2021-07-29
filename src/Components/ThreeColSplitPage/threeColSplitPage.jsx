@@ -6,6 +6,7 @@ import { Switch } from "react-materialize";
 export const ThreeColSplitPage = (props) => {
     
     const [chartData, setChartData] = useState('individual')
+
     let currentChartData = props.data[chartData][0]
     let chartColor = {
         individual: 'rgb(133,209,216,0.5)',
@@ -38,15 +39,12 @@ export const ThreeColSplitPage = (props) => {
         setData(data)
     },[chartData])
 
-    const toggleHandler = () => {
-        let currentChartData = props.data[chartData][0]
-        
+    const toggleHandler = () => {        
         if (chartData === 'individual'){
             setChartData('all')
         }else if (chartData === 'all') {
             setChartData('individual')
         }
-        console.log(chartData)
     }
       
     const options = {

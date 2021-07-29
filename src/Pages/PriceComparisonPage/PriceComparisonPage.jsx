@@ -3,13 +3,10 @@ import React,{useState} from "react";
 import { ThemeToggleService } from "../../services";
 import {
     PageContainer, 
-    ThreeColSplitPage,
-
+    ThreeColSplitPage
     } from "../../Components";
 import axios from "axios";
 import { useCookies } from "react-cookie";
-import { toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css';
 import SearchButton from "../../Components/SearchButton/SearchButton";
 import { useEffect } from "react";
 
@@ -22,7 +19,6 @@ export const PriceComparisonPage = () => {
     // states
     const [listData,setListData] = useState([])
     const [search,setSearch] = useState(false)
-    const [query,setQuery] = useState('')
     const [chartData,setChartData] = useState([])
     
     useEffect(() => {
