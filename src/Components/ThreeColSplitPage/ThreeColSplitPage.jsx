@@ -83,9 +83,9 @@ export const ThreeColSplitPage = (props) => {
                     <h1>{props.data.itemName}</h1>
                     {(chartData && currentChartData!== undefined )?
                     <div >
-                    <p>Average price: {currentChartData.averagePrice}</p>
-                    <p>Minimum price: {currentChartData.minPrice}</p>
-                    <p>Maximum price: {currentChartData.maxPrice}</p>
+                    <p>Average price: {currentChartData.averagePrice.toFixed(2)}</p>
+                    <p>Minimum price: {currentChartData.minPrice.toFixed(2)}</p>
+                    <p>Maximum price: {currentChartData.maxPrice.toFixed(2)}</p>
                     </div>
                 : 'No individual data'}
                 </div>
