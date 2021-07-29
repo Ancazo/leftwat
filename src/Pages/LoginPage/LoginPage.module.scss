@@ -1,0 +1,29 @@
+.splitRight{
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width:100%;
+
+    h1,p{
+        color: #4C6AC4;
+    }
+    p{
+        margin: 0;
+    }
+}
+
+.splitLeft{
+    display: flex;
+    border-right: 2px solid #4C6AC4;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    img{
+        width: 40vw;
+        height: 64vh;
+    }
+}
+
+
