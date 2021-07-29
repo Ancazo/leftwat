@@ -10,7 +10,7 @@ export const MenuPage = () => {
   return (
     <PageContainer navlink="/login" name='Logout'>
       <div id="menuButtonsContainer">
-        <Link to="/dashboard">
+        <Link to="/pricecomparison">
           <div className="buttonTitleContainer">
             <MenuButton
               type="chart"
@@ -50,6 +50,21 @@ export const MenuPage = () => {
             <Title
               title="Inventory"
               comment="What's in my fridge?"
+            />
+          </div>
+        </Link>
+
+        <Link to="/dashboard">
+          <div className="buttonTitleContainer">
+            <MenuButton
+              type="dashboard"
+              colour="#EB5335"
+              width="128px"
+              height="128px"
+            />
+            <Title
+              title="Dashboard"
+              comment="User data and receipts"
             />
           </div>
         </Link>

@@ -1,0 +1,45 @@
+
+.mainContainer{
+    display: flex;
+    height: 91.94vh;
+    width:100%;
+    flex-direction: row;
+}
+
+.column1 {
+    display: flex;
+    flex-direction: column;
+    flex:3 1 auto;
+    /* flex-grow: 3; */
+    background: white;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    padding: 0% 5%;
+}
+
+.column2 {
+    display: flex;
+    flex-direction: column;
+    /* flex-grow: 2 2 auto; */
+    flex:2 1 auto;
+    // background: lightblue;
+    height: 100%;
+    width:100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.itemInfo{
+    text-align: center;
+    width:80%;
+    margin:3%;
+    padding: 2%;
+    h1{
+        font-size: 20px;
+    }
+    p {
+        font-size:16px
+    }
+}
