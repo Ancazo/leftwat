@@ -6,7 +6,7 @@ import {
   Title,
   PageContainer,
 } from "../../Components";
-import "./dashboardPage.scss";
+import "./DashboardPage.scss";
 import { ThemeToggleService } from "../../services";
 import { Link } from "react-router-dom";
 import { useCookies } from 'react-cookie';
