@@ -63,10 +63,10 @@ export const UploadTableContainer = (props) => {
     }
 
     return (
-        <div className = 'container'>
+        <div className = 'container' style={{overflow:'scroll',margin : '2%', padding: '2%', width: '70%'}}>
             <form>
                 <UploadTable data = {listData} onchange = {changeHandler} />
-                <div className = 'right-align'>
+                <div className = 'right-align' style= {{margin:'2%'}}>
                     <SmallButton type='submit' text = 'confirm' onclick = {handleFormSubmit}/>
                 </div>
             </form>

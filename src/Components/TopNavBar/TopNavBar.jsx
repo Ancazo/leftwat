@@ -52,7 +52,7 @@ export const TopNavBar = (props) => {
       <div id="nameAndLogin">
         <div id="userName"></div>
         <Link to= {props.navlink} id= 'loginAndLogoutButton'> 
-            <div style = {{border: `1px solid ${state.theme.text}`,borderRadius: '5px', color: `${state.theme.text}`}} onClick={(e) => handleLogout(e)}>
+            <div style = {{border: `1px solid ${state.theme.text}`,borderRadius: '5px', color: `${state.theme.text}`}} onClick={props.navLink === '/logout'?(e) => handleLogout(e):''}>
             {props.name}
             </div>
         </Link>

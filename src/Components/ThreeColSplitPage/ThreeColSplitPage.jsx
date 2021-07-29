@@ -8,6 +8,7 @@ export const ThreeColSplitPage = (props) => {
     const [chartData, setChartData] = useState('individual')
 
     let currentChartData = props.data[chartData][0]
+
     let chartColor = {
         individual: 'rgb(133,209,216,0.5)',
         all: 'rgb(76,106,196,0.5)'
@@ -23,20 +24,23 @@ export const ThreeColSplitPage = (props) => {
         },
     }
     const [data,setData] = useState({})
+
     useEffect(()=> {
-        let data = {
-            labels: currentChartData.itemLabel,
-            datasets: [
-              {
-                label: chartData,
-                data: currentChartData.itemPrice,
-                fill: true,
-                backgroundColor: chartColor[chartData],
-                borderColor: chartColor[chartData],
-              },
-            ],
-        };
-        setData(data)
+        if (currentChartData !== undefined) {
+            let data = {
+                labels: currentChartData.itemLabel,
+                datasets: [
+                  {
+                    label: chartData,
+                    data: currentChartData.itemPrice,
+                    fill: true,
+                    backgroundColor: chartColor[chartData],
+                    borderColor: chartColor[chartData],
+                  },
+                ],
+            }
+            setData(data)
+        }
     },[chartData])
 
     const toggleHandler = () => {        
@@ -64,7 +68,7 @@ export const ThreeColSplitPage = (props) => {
     return (
         <div className='mainContainer'>
             <div className='column column1 '>
-                {chartData? <Line data = {data} options={options}/> : ''}
+                {(chartData && currentChartData !== undefined )? <Line data = {data} options={options}/> : 'No individual data'}
             </div>
             <div className='column column2 '>
                 <div className = 'center-align'>
@@ -77,11 +81,13 @@ export const ThreeColSplitPage = (props) => {
                 </div>
                 <div className='itemInfo' style={style[chartData]}>
                     <h1>{props.data.itemName}</h1>
+                    {(chartData && currentChartData!== undefined )?
                     <div >
                     <p>Average price: {currentChartData.averagePrice}</p>
                     <p>Minimum price: {currentChartData.minPrice}</p>
                     <p>Maximum price: {currentChartData.maxPrice}</p>
                     </div>
+                : 'No individual data'}
                 </div>
             </div>
         </div>
