@@ -45,9 +45,15 @@ For **backend**, we split the work between the two main databases needed: User a
 
 For **frontend**, we started with coming up with the visual layouts first, followed by coding the components, before working on the logic of how the user interacts with the app. We also split the work by pages, largely by User functions (registration, login, cookies etc.) and Product/User-Product cross-functions (e.g. dashboard, pricing charts, etc.). We also opted for ‘functions’ instead of ‘class’ for better efficiency, and to keep up with industry trends/standards (since ‘class’ is being phased out).
 
+## Wireframe Samples
+
+![Landing Page and Signup](/public/landing.png "Landing Page and Signup")
+![Inventory Page](/public/inventory.png "Inventory Page")
+![Price Comparison Page](/public/price_comparison.png "Price Comparison Page")
+
 ## Unsolved Problems
 
-- OCR API: We decided to focus on a single merchant template (i.e. RedMart) and did not try receipts/invoices from other merchants to see if the feature works across receipt/invoices types.
+- OCR API: We decided to focus on a single merchant template (i.e. RedMart) and did not try receipts/invoices from other merchants to see if the feature works across receipt/invoices types. **Update: works for Sheng Shiong
 - Security concerns regarding JWT practices and cookie storage/usage: Currently our login cookie is only stored in the frontend. However, as a better security measure, cookies should always be stored in both frontend and backend so that the system can compare and only authenticate users when frontend and backend cookies match.
 - We wanted to do single-page app but were unable to do so (due to the complexities), hence we proceeded with a multi-page app.
 - Forgot password route
